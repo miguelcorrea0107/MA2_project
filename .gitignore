@@ -1,0 +1,6 @@
+.DS_Store
+*.ext
+*.raw
+*.log
+*.aux
+*.gz
