@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.15)  7 MAR 2024 22:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.15)  12 MAR 2024 12:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/miguelcorrea/Desktop/sem_proj/Report/rep
-(/Users/miguelcorrea/Desktop/sem_proj/Report/rep.tex
+**/Users/miguelcorrea/Desktop/MA2_project/Report/rep
+(/Users/miguelcorrea/Desktop/MA2_project/Report/rep.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/local/texlive/2023/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2022/07/02 v1.4n Standard LaTeX document class
@@ -52,19 +52,24 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 9.
  [1
 
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [1
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (180.27888pt too wide) in paragraph at lines 20--21
+[]\OT1/cmr/m/n/10 For that sup-ply volt-age, we have trans-fer char-ac-ter-is-tics in pa-per https://doi.org/10.1109/MIEL52794.2021.9569148. 
+ []
+
+[1
 
 {/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./rep.aux) ) 
 Here is how much of TeX's memory you used:
  472 strings out of 476025
- 8755 string characters out of 5790017
- 1851388 words of memory out of 5000000
+ 8764 string characters out of 5790017
+ 1854388 words of memory out of 5000000
  20994 multiletter control sequences out of 15000+600000
  516263 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,6n,38p,387b,186s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 34i,6n,38p,486b,186s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on rep.pdf (2 pages, 58089 bytes).
+Output written on rep.pdf (2 pages, 61241 bytes).
 PDF statistics:
  37 PDF objects out of 1000 (max. 8388607)
  22 compressed objects within 1 object stream
