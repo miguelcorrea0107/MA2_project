@@ -5,7 +5,7 @@ K {}
 V {}
 S {}
 E {}
-T {Testbench inverter amplifier} -120 -280 0 0 0.4 0.4 {layer=8 font="Liberation Sans"}
+T {Testbench inverter amplifier} -70 -150 0 0 0.4 0.4 {layer=8 font="Liberation Sans"}
 N -90 -60 0 -60 {
 lab=in}
 N -90 -60 -90 -30 {
@@ -20,29 +20,17 @@ N -270 -60 -270 -30 {
 lab=VCC}
 N -180 -60 -180 -30 {
 lab=VSS}
-N 140 -60 200 -60 {
-lab=out}
-N 90 -160 200 -160 {
-lab=out}
-N -90 -160 30 -160 {
-lab=in}
-N -90 -160 -90 -60 {
-lab=in}
-N 200 -160 200 -60 {
-lab=out}
-N 200 -60 200 -50 {
-lab=out}
-N 200 10 200 30 {
-lab=#net1}
 N -270 80 -270 110 {
 lab=GND}
 N -180 80 -180 110 {
 lab=GND}
 N -90 80 -90 110 {
 lab=GND}
-N 200 90 200 110 {
+N 130 -60 200 -60 {
+lab=out}
+N 200 20 200 110 {
 lab=GND}
-N 200 -60 250 -60 {
+N 200 -60 200 -40 {
 lab=out}
 C {inv_sky130_a.sym} 60 -60 0 0 {name=x1}
 C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0 AC 0.1" savecurrent=false}
@@ -56,7 +44,7 @@ C {devices/vdd.sym} -270 -60 0 0 {name=l5 lab=VCC
 }
 C {devices/lab_pin.sym} -90 -60 0 0 {name=in sig_type=std_logic lab=in
 }
-C {devices/code.sym} 350 0 0 0 {name=TT_MODELS
+C {devices/code.sym} 260 30 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -65,7 +53,7 @@ value="
 
 "
 spice_ignore=false}
-C {devices/code.sym} 350 -160 0 0 {name=control only_toplevel=false value="
+C {devices/code.sym} 260 -120 0 0 {name=control only_toplevel=false value="
 .control
   tran 1ns 100us
   save all
@@ -78,17 +66,11 @@ C {devices/code.sym} 350 -160 0 0 {name=control only_toplevel=false value="
   write tb_inv_sky130_a_AC.raw gain phase
 .endc
 "}
-C {devices/lab_pin.sym} 250 -60 2 0 {name=out sig_type=std_logic lab=out
+C {devices/lab_pin.sym} 200 -60 2 0 {name=out sig_type=std_logic lab=out
 }
-C {sky130_fd_pr/res_generic_m1.sym} 60 -160 3 0 {name=R1
-W=1
-L=1
-model=res_generic_m1
-mult=1}
-C {sky130_fd_pr/res_generic_m1.sym} 200 -20 0 0 {name=R2
-W=1
-L=1
-model=res_generic_m1
-mult=1}
-C {sky130_fd_pr/cap_mim_m3_1.sym} 200 60 0 0 {name=C1 model=cap_mim_m3_1 W=1 L=1 MF=1 spiceprefix=X}
+C {devices/capa.sym} 200 -10 0 0 {name=C1
+m=1
+value=1p
+footprint=1206
+device="ceramic capacitor"}
 C {devices/gnd.sym} 200 110 0 0 {name=l6 lab=GND}
