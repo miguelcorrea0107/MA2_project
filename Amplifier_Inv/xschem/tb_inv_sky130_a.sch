@@ -33,7 +33,6 @@ lab=GND}
 N 200 -60 200 -40 {
 lab=out}
 C {inv_sky130_a.sym} 60 -60 0 0 {name=x1}
-C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0 AC 0.1" savecurrent=false}
 C {devices/gnd.sym} -90 110 0 0 {name=l1 lab=GND}
 C {devices/vsource.sym} -180 0 0 0 {name=VN value=0 savecurrent=false}
 C {devices/vsource.sym} -270 0 0 0 {name=VP value=1.5 savecurrent=false}
@@ -44,7 +43,7 @@ C {devices/vdd.sym} -270 -60 0 0 {name=l5 lab=VCC
 }
 C {devices/lab_pin.sym} -90 -60 0 0 {name=in sig_type=std_logic lab=in
 }
-C {devices/code.sym} 260 30 0 0 {name=TT_MODELS
+C {devices/code.sym} 270 30 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -53,24 +52,22 @@ value="
 
 "
 spice_ignore=false}
-C {devices/code.sym} 260 -120 0 0 {name=control only_toplevel=false value="
+C {devices/code.sym} 270 -120 0 0 {name=control only_toplevel=false value="
 .control
-  tran 1ns 100us
   save all
-  write tb_inv_sky130_a_tran.raw
-  ac dec 10 0.1 100k
-  save all
-  let gain = db(v(out)/v(in)) 
+  ac dec 40 1 1e10
+  let gain = db(v(out)/v(in))
   let phase = phase(v(out)/v(in))
-  print gain phase
   write tb_inv_sky130_a_AC.raw gain phase
+  save all
 .endc
 "}
 C {devices/lab_pin.sym} 200 -60 2 0 {name=out sig_type=std_logic lab=out
 }
-C {devices/capa.sym} 200 -10 0 0 {name=C1
-m=1
-value=1p
-footprint=1206
-device="ceramic capacitor"}
 C {devices/gnd.sym} 200 110 0 0 {name=l6 lab=GND}
+C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0.7052 AC 1e-3" savecurrent=false}
+C {devices/res.sym} 200 -10 0 0 {name=Rl
+value=1e15
+footprint=1206
+device=resistor
+m=1}

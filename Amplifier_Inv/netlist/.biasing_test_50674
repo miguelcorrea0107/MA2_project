@@ -1,0 +1,18 @@
+** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/biasing_test.sch
+**.subckt biasing_test
+x1 ?1 out ?1 in  VCC VSS not W_N=10 L_N=0.15 W_P=20 L_P=0.15 m=1
+**** end_element
+VN ?1 VSS ?1 GND  0
+**** end_element
+VP ?1 VCC ?1 GND  1.5
+**** end_element
+Vin ?1 in ?1 GND  0.7059
+**** end_element
+C1 ?1 out ?1 GND  1p m=1
+**** end_element
+**** begin user architecture code
+ 
+** opencircuitdesign pdks install
+.lib /usr/local/share/pdk/sky130A/libs.tech/combined/sky130.lib.spice tt
+
+ 

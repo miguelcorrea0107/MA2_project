@@ -1,10 +1,10 @@
-** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/tb_inv_sky130_a.sch
-**.subckt tb_inv_sky130_a
-x1 out in inv_sky130_a
+** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/biasing_test.sch
+**.subckt biasing_test
+x1 out in VCC VSS not W_N=20 L_N=0.15 W_P=40 L_P=0.15 m=1
 VN VSS GND 0
 VP VCC GND 1.5
-Vin in GND 0.7052 AC 1e-3
-Rl out GND 1e15 m=1
+Vin in GND 0.7052
+C1 out GND 1p m=1
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -14,30 +14,20 @@ Rl out GND 1e15 m=1
 
 
 .control
+  op
+  print @m.x1.xm1.msky130_fd_pr__nfet_01v8[gm]
+  print @m.x1.xm2.msky130_fd_pr__pfet_01v8[gm]
+  print @m.x1.xm1.msky130_fd_pr__nfet_01v8[gds]
+  print @m.x1.xm2.msky130_fd_pr__pfet_01v8[gds]
+  print @m.x1.xm1.msky130_fd_pr__nfet_01v8[cgs]
+  print @m.x1.xm2.msky130_fd_pr__pfet_01v8[cgs]
   save all
-  ac dec 40 1 1e10
-  let gain = db(v(out)/v(in))
-  let phase = phase(v(out)/v(in))
-  write tb_inv_sky130_a_AC.raw gain phase
-  save all
+  write tb_inv_sky130_op.raw
 .endc
 
 
 **** end user architecture code
 **.ends
-
-* expanding   symbol:  inv_sky130_a.sym # of pins=2
-** sym_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/inv_sky130_a.sym
-** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/inv_sky130_a.sch
-.subckt inv_sky130_a out in
-*.ipin in
-*.opin out
-x1 net1 in VCC VSS not W_N=20 L_N=0.15 W_P=40 L_P=0.15 m=1
-XC1 out GND sky130_fd_pr__cap_mim_m3_1 W=1 L=1 MF=1 m=1
-XR3 net1 in GND sky130_fd_pr__res_xhigh_po W=1 L=30 mult=1 m=1
-R2 out net1 sky130_fd_pr__res_generic_m1 W=1 L=1 m=1
-.ends
-
 
 * expanding   symbol:  sky130_tests/not.sym # of pins=2
 ** sym_path: /usr/local/share/pdk/sky130A/libs.tech/xschem/sky130_tests/not.sym
