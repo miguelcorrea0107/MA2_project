@@ -55,7 +55,7 @@ spice_ignore=false}
 C {devices/code.sym} 270 -120 0 0 {name=control only_toplevel=false value="
 .control
   save all
-  ac dec 40 1 1e10
+  ac dec 40 1 1e6
   let gain = db(v(out)/v(in))
   let phase = phase(v(out)/v(in))
   write tb_inv_sky130_a_AC.raw gain phase
