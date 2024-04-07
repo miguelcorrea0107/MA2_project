@@ -3,7 +3,7 @@
 x1 out in inv_sky130_a
 VN VSS GND 0
 VP VCC GND 1.5
-Vin in GND 0.7052 AC 1e-3
+Vin in GND 0.7052 AC 1e-6
 Rl out GND 1e15 m=1
 **** begin user architecture code
 
@@ -12,14 +12,28 @@ Rl out GND 1e15 m=1
 
 
 
-
 .control
+
+  op
   save all
+  print @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[gm]
+  print @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[gm]
+  print @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[gds]
+  print @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[gds]
+  print @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[cgs]
+  print @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[cgs]
+  write tb_inv_sky130_op.raw
+
   ac dec 40 1 1e6
+  save all
   let gain = db(v(out)/v(in))
   let phase = phase(v(out)/v(in))
   write tb_inv_sky130_a_AC.raw gain phase
+
+  dc Vin 0 1.5 0.01
   save all
+  write tb_inv_sky130_DC.raw v(in) v(out)
+
 .endc
 
 
