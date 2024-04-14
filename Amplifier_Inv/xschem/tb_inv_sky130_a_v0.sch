@@ -74,8 +74,11 @@ C {devices/code.sym} 280 -115 0 0 {name=control only_toplevel=false value=".cont
 
   dc Vin 0 1.5 0.01
   save all
-  let pw = vin[p]
-  write tb_inv_sky130_a_DC.raw v(in) v(out) pw
+  write tb_inv_sky130_a_DC.raw v(in) v(out)
+ 
+  noise v(out) Vin dec 10 100 1000MEG
+  save all
+  write tb_inv_sky130_a_noise.raw
 
 .endc
 "

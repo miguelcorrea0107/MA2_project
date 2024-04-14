@@ -2,10 +2,10 @@
 **.subckt inv_sky130_a out in
 *.ipin in
 *.opin out
-x1 net1 in VCC VSS not W_N=20 L_N=0.15 W_P=40 L_P=0.15 m=1
+x1 test in VCC VSS not W_N=20 L_N=0.15 W_P=40 L_P=0.15 m=1
 XC1 out GND sky130_fd_pr__cap_mim_m3_1 W=15 L=15 MF=6 m=6
-XR3 net1 in GND sky130_fd_pr__res_xhigh_po W=1 L=30 mult=1 m=1
-XR1 out net1 GND sky130_fd_pr__res_xhigh_po W=1 L=50 mult=1 m=1
+XR1 test in GND sky130_fd_pr__res_xhigh_po W=1 L=30 mult=1 m=1
+XR2 out test GND sky130_fd_pr__res_xhigh_po W=1 L=50 mult=1 m=1
 **.ends
 
 * expanding   symbol:  sky130_tests/not.sym # of pins=2
