@@ -1,0 +1,2 @@
+Vdd,Wn,Ln,Wp,Lp,R_1,R_2,C_1,G_mn,G_mp,G_dsn,G_dsp,C_gsn,C_gsp,Vdc,gain_dB_calc,cut-off_calc,noise_calc,power_calc,gain_dB_sim,cut-off_sim,noise_sim,power_sim
+1.5,20.0,0.15,40.0,0.15,60000.0,100000.0,2.768e-12,0.001642537,0.001314604,9.321308e-05,0.0001683392,9.11685e-15,2.38214e-14,0.7052,20.52971,555032.3,0.0,0.0,20.52,524500.0,4.126e-07,3.539363e-05

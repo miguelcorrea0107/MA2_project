@@ -2,7 +2,7 @@
 **.subckt tb_inv_sky130_a
 VN VSS GND 0
 VP VCC GND 1.5
-Vin in GND 0.7052 AC 1e-6
+Vin in GND 0.7052 AC 50e-6
 Rl out GND 1e15 m=1
 x1 out in inv_sky130_a
 **** begin user architecture code
@@ -18,7 +18,7 @@ x1 out in inv_sky130_a
   save all
   let gmn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[gm]
   let gmp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[gm]
-  let gdsn = @m,x1.x1.xm1.msky130_fd_pr__nfet_01v8[gds]
+  let gdsn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[gds]
   let gdsp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[gds]
   let cgsn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[cgs]
   let cgsp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[cgs]
@@ -30,10 +30,14 @@ x1 out in inv_sky130_a
   let phase = phase(v(out)/v(in))
   write tb_inv_sky130_a_AC.raw gain phase
 
+  noise v(out) Vin dec 40 300 10k
+  save all
+  setplot noise1
+  write tb_inv_sky130_a_noise.raw onoise_spectrum inoise_spectrum
+
   dc Vin 0 1.5 0.01
   save all
-  let pw = vin[p]
-  write tb_inv_sky130_a_DC.raw v(in) v(out) pw
+  write tb_inv_sky130_a_DC.raw v(in) v(out)
 
 .endc
 

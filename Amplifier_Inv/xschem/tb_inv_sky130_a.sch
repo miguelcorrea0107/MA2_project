@@ -47,7 +47,7 @@ spice_ignore=false}
 C {devices/lab_pin.sym} 200 -60 2 0 {name=out sig_type=std_logic lab=out
 }
 C {devices/gnd.sym} 200 80 0 0 {name=l6 lab=GND}
-C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0.7052 AC 1e-6" savecurrent=false}
+C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0.7052 AC 50e-6" savecurrent=false}
 C {devices/res.sym} 200 -10 0 0 {name=Rl
 value=1e15
 footprint=1206
@@ -60,7 +60,7 @@ C {devices/code.sym} 280 -115 0 0 {name=control only_toplevel=false value=".cont
   save all  
   let gmn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[gm]
   let gmp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[gm]
-  let gdsn = @m,x1.x1.xm1.msky130_fd_pr__nfet_01v8[gds]
+  let gdsn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[gds]
   let gdsp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[gds]
   let cgsn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[cgs]
   let cgsp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[cgs]
@@ -72,10 +72,14 @@ C {devices/code.sym} 280 -115 0 0 {name=control only_toplevel=false value=".cont
   let phase = phase(v(out)/v(in))
   write tb_inv_sky130_a_AC.raw gain phase
 
+  noise v(out) Vin dec 40 300 10k
+  save all
+  setplot noise1
+  write tb_inv_sky130_a_noise.raw onoise_spectrum inoise_spectrum
+
   dc Vin 0 1.5 0.01
   save all
-  let pw = vin[p]
-  write tb_inv_sky130_a_DC.raw v(in) v(out) pw
+  write tb_inv_sky130_a_DC.raw v(in) v(out)
 
 .endc
 "
