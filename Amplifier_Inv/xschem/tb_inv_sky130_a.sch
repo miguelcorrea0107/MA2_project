@@ -7,10 +7,6 @@ S {}
 E {}
 N -90 -60 -90 -30 {
 lab=in}
-N -90 -60 0 -60 {
-lab=in}
-N -270 -60 -270 -30 {
-lab=VCC}
 N -270 30 -270 80 {
 lab=GND}
 N -180 30 -180 80 {
@@ -25,14 +21,16 @@ N 200 -60 200 -40 {
 lab=out}
 N 200 20 200 80 {
 lab=GND}
+N -90 -60 -0 -60 {
+lab=in}
+N -270 -60 -270 -30 {
+lab=VCC}
 C {devices/gnd.sym} -90 80 0 0 {name=l1 lab=GND}
 C {devices/vsource.sym} -180 0 0 0 {name=VN value=0 savecurrent=false}
-C {devices/vsource.sym} -270 0 0 0 {name=VP value=1.5 savecurrent=false}
+C {devices/vsource.sym} -270 0 0 0 {name=VP value=1.5 savecurrent=true}
 C {devices/gnd.sym} -180 80 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} -270 80 0 0 {name=l3 lab=GND}
 C {devices/vdd.sym} -180 -60 0 0 {name=l4 lab=VSS}
-C {devices/vdd.sym} -270 -60 0 0 {name=l5 lab=VCC
-}
 C {devices/lab_pin.sym} -90 -60 0 0 {name=in sig_type=std_logic lab=in
 }
 C {devices/code.sym} 285 40 0 0 {name=TT_MODELS
@@ -47,14 +45,15 @@ spice_ignore=false}
 C {devices/lab_pin.sym} 200 -60 2 0 {name=out sig_type=std_logic lab=out
 }
 C {devices/gnd.sym} 200 80 0 0 {name=l6 lab=GND}
-C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0.7052 AC 50e-6" savecurrent=false}
+C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0.7052 ac 1e-3
++ sin(0.7052 0.001 1000 0 0 0)" savecurrent=true}
 C {devices/res.sym} 200 -10 0 0 {name=Rl
 value=1e15
 footprint=1206
 device=resistor
 m=1}
 C {devices/title.sym} -340 200 0 0 {name=l7 author="Rafael Miguel Correa"}
-C {devices/code.sym} 280 -115 0 0 {name=control only_toplevel=false value=".control
+C {devices/code.sym} 280 -65 2 1 {name=control only_toplevel=false value=".control
  
   op
   save all  
@@ -77,11 +76,21 @@ C {devices/code.sym} 280 -115 0 0 {name=control only_toplevel=false value=".cont
   setplot noise1
   write tb_inv_sky130_a_noise.raw onoise_spectrum inoise_spectrum
 
+  tran 1u 2m
+  save all
+  let pw_in = i(Vin)*v(in)
+  let pw_vcc = i(Vp)*1.5
+  let pw_total = pw_in+pw_vcc
+  meas tran avg_pw_total AVG pw_total FROM=0 TO=2m
+  write tb_inv_sky130_a_tran.raw v(in) v(out)
+
   dc Vin 0 1.5 0.01
   save all
   write tb_inv_sky130_a_DC.raw v(in) v(out)
-
+ 
 .endc
 "
+savecurrent = true
 }
 C {inv_sky130_a.sym} 60 -60 0 0 {name=x1}
+C {devices/vdd.sym} -270 -60 0 0 {name=l5 lab=VCC}

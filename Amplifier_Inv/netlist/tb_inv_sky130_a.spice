@@ -2,7 +2,9 @@
 **.subckt tb_inv_sky130_a
 VN VSS GND 0
 VP VCC GND 1.5
-Vin in GND 0.7052 AC 50e-6
+.save i(vp)
+Vin in GND 0.7052 ac 1e-3 sin(0.7052 0.001 1000 0 0 0)
+.save i(vin)
 Rl out GND 1e15 m=1
 x1 out in inv_sky130_a
 **** begin user architecture code
@@ -34,6 +36,14 @@ x1 out in inv_sky130_a
   save all
   setplot noise1
   write tb_inv_sky130_a_noise.raw onoise_spectrum inoise_spectrum
+
+  tran 1u 2m
+  save all
+  let pw_in = i(Vin)*v(in)
+  let pw_vcc = i(Vp)*1.5
+  let pw_total = pw_in+pw_vcc
+  meas tran avg_pw_total AVG pw_total FROM=0 TO=2m
+  write tb_inv_sky130_a_tran.raw v(in) v(out)
 
   dc Vin 0 1.5 0.01
   save all
