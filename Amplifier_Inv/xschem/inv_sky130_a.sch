@@ -30,7 +30,7 @@ C {devices/ipin.sym} -120 0 0 0 {name=p1 lab=in
 }
 C {devices/opin.sym} 190 0 0 0 {name=p2 lab=out
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 170 50 0 0 {name=C1 model=cap_mim_m3_1 W=14 L=13 MF=6 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 170 50 0 0 {name=C1 model=cap_mim_m3_1 W=70 L=60 MF=6 spiceprefix=X}
 C {devices/gnd.sym} 170 100 0 0 {name=l6 lab=GND}
 C {sky130_fd_pr/res_xhigh_po.sym} 10 -120 3 0 {name=R1
 W=1

@@ -53,7 +53,7 @@ footprint=1206
 device=resistor
 m=1}
 C {devices/title.sym} -340 200 0 0 {name=l7 author="Rafael Miguel Correa"}
-C {devices/code.sym} 280 -65 2 1 {name=control only_toplevel=false value=".control
+C {devices/code.sym} 280 -55 2 1 {name=control only_toplevel=false value=".control
  
   op
   save all 
@@ -66,7 +66,7 @@ C {devices/code.sym} 280 -65 2 1 {name=control only_toplevel=false value=".contr
   let vthn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[vth]
   write tb_inv_sky130_a_op.raw gmn gmp gdsn gdsp cgsn cgsp vthn
 
-  ac dec 1000 1 1e6
+  ac dec 10000 1 1e5
   save all
   let gain = db(v(out)/v(in))
   let phase = phase(v(out)/v(in))
@@ -74,8 +74,7 @@ C {devices/code.sym} 280 -65 2 1 {name=control only_toplevel=false value=".contr
 
   noise v(out) Vin dec 1000 300 10k
   save all
-  setplot noise1
-  write tb_inv_sky130_a_noise.raw onoise_spectrum inoise_spectrum
+  write tb_inv_sky130_a_noise.raw
 
   tran 0.1u 2m
   save all
@@ -87,7 +86,7 @@ C {devices/code.sym} 280 -65 2 1 {name=control only_toplevel=false value=".contr
   meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
   write tb_inv_sky130_a_tran.raw v(in) v(out)
 
-  dc Vin 0 1.5 0.001
+  dc Vin 0 1.125 0.001
   save all
   write tb_inv_sky130_a_DC.raw v(in) v(out)
  

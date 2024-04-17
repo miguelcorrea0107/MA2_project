@@ -27,7 +27,7 @@ x1 out in inv_sky130_a
   let vthn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[vth]
   write tb_inv_sky130_a_op.raw gmn gmp gdsn gdsp cgsn cgsp vthn
 
-  ac dec 1000 1 1e6
+  ac dec 10000 1 1e5
   save all
   let gain = db(v(out)/v(in))
   let phase = phase(v(out)/v(in))
@@ -35,8 +35,7 @@ x1 out in inv_sky130_a
 
   noise v(out) Vin dec 1000 300 10k
   save all
-  setplot noise1
-  write tb_inv_sky130_a_noise.raw onoise_spectrum inoise_spectrum
+  write tb_inv_sky130_a_noise.raw
 
   tran 0.1u 2m
   save all
@@ -48,7 +47,7 @@ x1 out in inv_sky130_a
   meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
   write tb_inv_sky130_a_tran.raw v(in) v(out)
 
-  dc Vin 0 1.5 0.001
+  dc Vin 0 1.125 0.001
   save all
   write tb_inv_sky130_a_DC.raw v(in) v(out)
 
@@ -65,8 +64,8 @@ x1 out in inv_sky130_a
 *.ipin in
 *.opin out
 x1 test in VCC VSS not W_N=50 L_N=0.15 W_P=100 L_P=0.15 m=1
-XC1 out GND sky130_fd_pr__cap_mim_m3_1 W=14 L=13 MF=6 m=6
-XR1 test in GND sky130_fd_pr__res_xhigh_po W=1 L=90 mult=1 m=1
+XC1 out GND sky130_fd_pr__cap_mim_m3_1 W=70 L=60 MF=6 m=6
+XR1 test in GND sky130_fd_pr__res_xhigh_po W=1 L=100 mult=1 m=1
 XR2 out test GND sky130_fd_pr__res_xhigh_po W=1 L=50 mult=1 m=1
 .ends
 
