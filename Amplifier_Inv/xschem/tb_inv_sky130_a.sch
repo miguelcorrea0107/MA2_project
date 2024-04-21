@@ -27,7 +27,7 @@ N -270 -60 -270 -30 {
 lab=VCC}
 C {devices/gnd.sym} -90 80 0 0 {name=l1 lab=GND}
 C {devices/vsource.sym} -180 0 0 0 {name=VN value=0 savecurrent=false}
-C {devices/vsource.sym} -270 0 0 0 {name=VP value=1,125 savecurrent=true}
+C {devices/vsource.sym} -270 0 0 0 {name=VP value=1.125 savecurrent=true}
 C {devices/gnd.sym} -180 80 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} -270 80 0 0 {name=l3 lab=GND}
 C {devices/vdd.sym} -180 -60 0 0 {name=l4 lab=VSS}
@@ -45,8 +45,8 @@ spice_ignore=false}
 C {devices/lab_pin.sym} 200 -60 2 0 {name=out sig_type=std_logic lab=out
 }
 C {devices/gnd.sym} 200 80 0 0 {name=l6 lab=GND}
-C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0.538 ac 1e-3
-+ sin(0.538 0.001 1000 0 0 0)" savecurrent=true}
+C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0.44866 ac 1e-3
++ sin(0.44866 0.001 1000 0 0 0)" savecurrent=true}
 C {devices/res.sym} 200 -10 0 0 {name=Rl
 value=1e15
 footprint=1206
@@ -91,7 +91,7 @@ C {devices/code.sym} 280 -55 2 1 {name=control only_toplevel=false value=".contr
   meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
   write tb_inv_sky130_a_tran.raw v(in) v(out) avg_pw_total
 
-  dc Vin 0 1 0.001
+  dc Vin 0 1 0.00001
   save all
   write tb_inv_sky130_a_DC.raw v(in) v(out)
  
