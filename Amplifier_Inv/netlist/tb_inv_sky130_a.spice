@@ -33,24 +33,30 @@ x1 out in inv_sky130_a
   let phase = phase(v(out)/v(in))
   write tb_inv_sky130_a_AC.raw gain phase
 
-  noise v(out) Vin dec 1000 300 10k
+  noise v(out) Vin dec 1000 300 10k 10
   save all
   write tb_inv_sky130_a_noise.raw
+
+  noise v(out) Vin dec 1000 300 10k
+  save all
+  setplot noise1
+  write tb_inv_sky130_a_noise_spectrum.raw
 
   tran 0.1u 2m
   save all
   let pw_in = i(Vin)*v(in)
-  let pw_vcc = i(Vp)*1.125
+  let pw_vcc = i(Vp)*1,125
   let pw_total = pw_in+pw_vcc
   meas tran avg_pw_total AVG pw_total FROM=0 TO=2m
   meas tran avg_pw_in AVG pw_in FROM=0 TO=2m
   meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
-  write tb_inv_sky130_a_tran.raw v(in) v(out)
+  write tb_inv_sky130_a_tran.raw v(in) v(out) avg_pw_total
 
-  dc Vin 0 1.125 0.001
+  dc Vin 0 1 0.001
   save all
   write tb_inv_sky130_a_DC.raw v(in) v(out)
 
+  exit 0
 .endc
 
 
@@ -65,7 +71,7 @@ x1 out in inv_sky130_a
 *.opin out
 x1 test in VCC VSS not W_N=50 L_N=0.15 W_P=100 L_P=0.15 m=1
 XC1 out GND sky130_fd_pr__cap_mim_m3_1 W=70 L=60 MF=6 m=6
-XR1 test in GND sky130_fd_pr__res_xhigh_po W=1 L=100 mult=1 m=1
+XR1 test in GND sky130_fd_pr__res_xhigh_po W=1 L=90 mult=1 m=1
 XR2 out test GND sky130_fd_pr__res_xhigh_po W=1 L=50 mult=1 m=1
 .ends
 

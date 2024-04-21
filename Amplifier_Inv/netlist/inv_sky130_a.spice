@@ -3,8 +3,8 @@
 *.ipin in
 *.opin out
 x1 test in VCC VSS not W_N=50 L_N=0.15 W_P=100 L_P=0.15 m=1
-XC1 out GND sky130_fd_pr__cap_mim_m3_1 W=70 L=50 MF=6 m=6
-XR1 test in GND sky130_fd_pr__res_xhigh_po W=1 L=90 mult=1 m=1
+XC1 out GND sky130_fd_pr__cap_mim_m3_1 W=70 L=60 MF=6 m=6
+XR1 test in GND sky130_fd_pr__res_xhigh_po W=1 L=10 mult=1 m=1
 XR2 out test GND sky130_fd_pr__res_xhigh_po W=1 L=50 mult=1 m=1
 **.ends
 

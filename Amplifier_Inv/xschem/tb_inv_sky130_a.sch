@@ -27,7 +27,7 @@ N -270 -60 -270 -30 {
 lab=VCC}
 C {devices/gnd.sym} -90 80 0 0 {name=l1 lab=GND}
 C {devices/vsource.sym} -180 0 0 0 {name=VN value=0 savecurrent=false}
-C {devices/vsource.sym} -270 0 0 0 {name=VP value=1.125 savecurrent=true}
+C {devices/vsource.sym} -270 0 0 0 {name=VP value=1,125 savecurrent=true}
 C {devices/gnd.sym} -180 80 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} -270 80 0 0 {name=l3 lab=GND}
 C {devices/vdd.sym} -180 -60 0 0 {name=l4 lab=VSS}
@@ -72,24 +72,30 @@ C {devices/code.sym} 280 -55 2 1 {name=control only_toplevel=false value=".contr
   let phase = phase(v(out)/v(in))
   write tb_inv_sky130_a_AC.raw gain phase
 
-  noise v(out) Vin dec 1000 300 10k
+  noise v(out) Vin dec 1000 300 10k 10
   save all
   write tb_inv_sky130_a_noise.raw
+
+  noise v(out) Vin dec 1000 300 10k
+  save all
+  setplot noise1
+  write tb_inv_sky130_a_noise_spectrum.raw
 
   tran 0.1u 2m
   save all
   let pw_in = i(Vin)*v(in)
-  let pw_vcc = i(Vp)*1.125
+  let pw_vcc = i(Vp)*1,125
   let pw_total = pw_in+pw_vcc
   meas tran avg_pw_total AVG pw_total FROM=0 TO=2m
   meas tran avg_pw_in AVG pw_in FROM=0 TO=2m
   meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
-  write tb_inv_sky130_a_tran.raw v(in) v(out)
+  write tb_inv_sky130_a_tran.raw v(in) v(out) avg_pw_total
 
-  dc Vin 0 1.125 0.001
+  dc Vin 0 1 0.001
   save all
   write tb_inv_sky130_a_DC.raw v(in) v(out)
  
+  exit 0
 .endc
 "
 savecurrent = true
