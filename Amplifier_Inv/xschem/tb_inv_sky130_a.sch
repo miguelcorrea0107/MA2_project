@@ -48,13 +48,13 @@ C {devices/gnd.sym} 200 80 0 0 {name=l6 lab=GND}
 C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0.44866 ac 1e-3
 + sin(0.44866 0.001 1000 0 0 0)" savecurrent=true}
 C {devices/res.sym} 200 -10 0 0 {name=Rl
-value=1e15
+value=1e60
 footprint=1206
 device=resistor
 m=1}
 C {devices/title.sym} -340 200 0 0 {name=l7 author="Rafael Miguel Correa"}
-C {devices/code.sym} 280 -55 2 1 {name=control only_toplevel=false value=".control
- 
+C {devices/code.sym} 400 -125 0 1 {name=control only_toplevel=false value=".control
+  
   op
   save all 
   let gmn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[gm]
@@ -63,10 +63,12 @@ C {devices/code.sym} 280 -55 2 1 {name=control only_toplevel=false value=".contr
   let gdsp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[gds]
   let cgsn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[cgs]
   let cgsp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[cgs]
+  let cgdn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[cgd]
+  let cgdp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[cgd]
   let vthn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[vth]
-  write tb_inv_sky130_a_op.raw gmn gmp gdsn gdsp cgsn cgsp vthn
+  write tb_inv_sky130_a_op.raw gmn gmp gdsn gdsp cgsn cgsp cgdn cgdp vthn
 
-  ac dec 10000 1 1e5
+  ac dec 1000 1 1e6
   save all
   let gain = db(v(out)/v(in))
   let phase = phase(v(out)/v(in))
@@ -81,7 +83,7 @@ C {devices/code.sym} 280 -55 2 1 {name=control only_toplevel=false value=".contr
   setplot noise1
   write tb_inv_sky130_a_noise_spectrum.raw
 
-  tran 0.1u 2m
+  tran 0.1u 4m
   save all
   let pw_in = i(Vin)*v(in)
   let pw_vcc = i(Vp)*1,125
@@ -91,10 +93,6 @@ C {devices/code.sym} 280 -55 2 1 {name=control only_toplevel=false value=".contr
   meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
   write tb_inv_sky130_a_tran.raw v(in) v(out) avg_pw_total
 
-  dc Vin 0 1 0.00001
-  save all
-  write tb_inv_sky130_a_DC.raw v(in) v(out)
- 
   exit 0
 .endc
 "

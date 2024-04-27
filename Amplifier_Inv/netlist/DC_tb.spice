@@ -1,12 +1,32 @@
-** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/inv_sky130_a.sch
-**.subckt inv_sky130_a out in
-*.ipin in
-*.opin out
-x1 test net1 VCC VSS not W_N=250 L_N=1 W_P=200 L_P=0.25 m=1
-XC2 out GND sky130_fd_pr__cap_mim_m3_1 W=30 L=30 MF=1 m=1
-XR1 test net1 GND sky130_fd_pr__res_xhigh_po W=0.15 L=100 mult=1 m=1
-XR2 out test GND sky130_fd_pr__res_xhigh_po W=0.15 L=5 mult=1 m=1
-XC1 in net1 sky130_fd_pr__cap_mim_m3_1 W=18 L=18 MF=1 m=1
+** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/DC_tb.sch
+**.subckt DC_tb
+VN VSS GND 0
+VP VCC GND 1.125
+.save i(vp)
+Vin in GND 0.44866 ac 1e-3 sin(0.44866 0.001 1000 0 0 0)
+.save i(vin)
+Rl out GND 1e60 m=1
+x1 test in VCC VSS not W_N=250 L_N=1 W_P=180 L_P=0.25 m=1
+XC2 out GND sky130_fd_pr__cap_mim_m3_1 W=50 L=50 MF=1 m=1
+XR1 test in GND sky130_fd_pr__res_xhigh_po W=0.15 L=90000 mult=1 m=1
+XR2 out test GND sky130_fd_pr__res_xhigh_po W=0.15 L=50 mult=1 m=1
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+.lib /usr/local/share/pdk/sky130A/libs.tech/combined/sky130.lib.spice tt
+
+
+
+.control
+
+  dc Vin 0 1 0.00001
+  save all v(in) v(out)
+  write DC_tb.raw v(in) v(out)
+
+.endc
+
+
+**** end user architecture code
 **.ends
 
 * expanding   symbol:  sky130_tests/not.sym # of pins=2
@@ -22,4 +42,6 @@ XM2 y a VCCPIN VCCPIN sky130_fd_pr__pfet_01v8 L=L_P W=W_P nf=1 ad='int((nf+1)/2)
 .ends
 
 .GLOBAL GND
+.GLOBAL VSS
+.GLOBAL VCC
 .end
