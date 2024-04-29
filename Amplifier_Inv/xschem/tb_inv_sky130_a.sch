@@ -46,14 +46,14 @@ C {devices/lab_pin.sym} 200 -60 2 0 {name=out sig_type=std_logic lab=out
 }
 C {devices/gnd.sym} 200 80 0 0 {name=l6 lab=GND}
 C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0.44866 ac 1e-3
-+ sin(0.44866 0.001 1000 0 0 0)" savecurrent=true}
++ sin(0.44866 0.001 5000 0 0 0)" savecurrent=true}
 C {devices/res.sym} 200 -10 0 0 {name=Rl
 value=1e60
 footprint=1206
 device=resistor
 m=1}
 C {devices/title.sym} -340 200 0 0 {name=l7 author="Rafael Miguel Correa"}
-C {devices/code.sym} 400 -125 0 1 {name=control only_toplevel=false value=".control
+C {devices/code.sym} 280 -35 2 1 {name=control only_toplevel=false value=".control
   
   op
   save all 
