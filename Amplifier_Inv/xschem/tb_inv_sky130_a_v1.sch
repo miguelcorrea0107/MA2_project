@@ -65,23 +65,22 @@ C {devices/code.sym} 280 -35 2 1 {name=control only_toplevel=false value=".contr
   let cgsp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[cgs]
   let cgdn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[cgd]
   let cgdp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[cgd]
-  let vthn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[vth]
-  write tb_inv_sky130_a_op.raw gmn gmp gdsn gdsp cgsn cgsp cgdn cgdp vthn
+  write tb_inv_sky130_a_op_v1.raw gmn gmp gdsn gdsp cgsn cgsp cgdn cgdp
 
   ac dec 1000 1 1e6
   save all
   let gain = db(v(out)/v(in))
   let phase = phase(v(out)/v(in))
-  write tb_inv_sky130_a_AC.raw gain phase
+  write tb_inv_sky130_a_AC_v1.raw gain phase
 
   noise v(out) Vin dec 1000 300 10k 10
   save all
-  write tb_inv_sky130_a_noise.raw
+  write tb_inv_sky130_a_noise_v1.raw
 
   noise v(out) Vin dec 1000 300 10k
   save all
   setplot noise1
-  write tb_inv_sky130_a_noise_spectrum.raw
+  write tb_inv_sky130_a_noise_spectrum_v1.raw
 
   tran 0.1u 4m
   save all
@@ -91,12 +90,11 @@ C {devices/code.sym} 280 -35 2 1 {name=control only_toplevel=false value=".contr
   meas tran avg_pw_total AVG pw_total FROM=0 TO=2m
   meas tran avg_pw_in AVG pw_in FROM=0 TO=2m
   meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
-  write tb_inv_sky130_a_tran.raw v(in) v(out) avg_pw_total
+  write tb_inv_sky130_a_tran_v1.raw v(in) v(out) avg_pw_total
 
-  exit 0
 .endc
 "
 savecurrent = true
 }
-C {inv_sky130_a.sym} 60 -60 0 0 {name=x1}
 C {devices/vdd.sym} -270 -60 0 0 {name=l5 lab=VCC}
+C {inv_sky130_a_v1.sym} 60 -60 0 0 {name=x1}

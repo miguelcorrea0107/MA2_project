@@ -1,5 +1,5 @@
-** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/DC_tb.sch
-**.subckt DC_tb
+** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/DC_tb_v1.sch
+**.subckt DC_tb_v1
 VN VSS GND 0
 VP VCC GND 1.125
 .save i(vp)
@@ -21,7 +21,7 @@ XR2 out test GND sky130_fd_pr__res_xhigh_po W=0.15 L=50 mult=1 m=1
 
   dc Vin 0 1 0.00001
   save all v(in) v(out)
-  write DC_tb.raw v(in) v(out)
+  write DC_tb_v1.raw v(in) v(out)
 
 .endc
 

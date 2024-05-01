@@ -72,7 +72,7 @@ C {devices/code.sym} 480 -125 0 1 {name=control only_toplevel=false value=".cont
 
   dc Vin 0 1 0.00001
   save all v(in) v(out)
-  write DC_tb.raw v(in) v(out)
+  write tb_inv_sky130_a_DC_v1.raw v(in) v(out)
  
 .endc
 "

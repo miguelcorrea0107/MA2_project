@@ -1,12 +1,12 @@
-** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/tb_inv_sky130_a.sch
-**.subckt tb_inv_sky130_a
+** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/tb_inv_sky130_a_v1.sch
+**.subckt tb_inv_sky130_a_v1
 VN VSS GND 0
 VP VCC GND 1.125
 .save i(vp)
 Vin in GND 0.44866 ac 1e-3 sin(0.44866 0.001 5000 0 0 0)
 .save i(vin)
 Rl out GND 1e60 m=1
-x1 out in inv_sky130_a
+x1 out in inv_sky130_a_v1
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -26,23 +26,22 @@ x1 out in inv_sky130_a
   let cgsp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[cgs]
   let cgdn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[cgd]
   let cgdp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[cgd]
-  let vthn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[vth]
-  write tb_inv_sky130_a_op.raw gmn gmp gdsn gdsp cgsn cgsp cgdn cgdp vthn
+  write tb_inv_sky130_a_op_v1.raw gmn gmp gdsn gdsp cgsn cgsp cgdn cgdp
 
   ac dec 1000 1 1e6
   save all
   let gain = db(v(out)/v(in))
   let phase = phase(v(out)/v(in))
-  write tb_inv_sky130_a_AC.raw gain phase
+  write tb_inv_sky130_a_AC_v1.raw gain phase
 
   noise v(out) Vin dec 1000 300 10k 10
   save all
-  write tb_inv_sky130_a_noise.raw
+  write tb_inv_sky130_a_noise_v1.raw
 
   noise v(out) Vin dec 1000 300 10k
   save all
   setplot noise1
-  write tb_inv_sky130_a_noise_spectrum.raw
+  write tb_inv_sky130_a_noise_spectrum_v1.raw
 
   tran 0.1u 4m
   save all
@@ -52,26 +51,25 @@ x1 out in inv_sky130_a
   meas tran avg_pw_total AVG pw_total FROM=0 TO=2m
   meas tran avg_pw_in AVG pw_in FROM=0 TO=2m
   meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
-  write tb_inv_sky130_a_tran.raw v(in) v(out) avg_pw_total
+  write tb_inv_sky130_a_tran_v1.raw v(in) v(out) avg_pw_total
 
-  exit 0
 .endc
 
 
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  inv_sky130_a.sym # of pins=2
-** sym_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/inv_sky130_a.sym
-** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/inv_sky130_a.sch
-.subckt inv_sky130_a out in
+* expanding   symbol:  inv_sky130_a_v1.sym # of pins=2
+** sym_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/inv_sky130_a_v1.sym
+** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/inv_sky130_a_v1.sch
+.subckt inv_sky130_a_v1 out in
 *.ipin in
 *.opin out
 x1 test net1 VCC VSS not W_N=250 L_N=1 W_P=200 L_P=0.25 m=1
-XC2 out GND sky130_fd_pr__cap_mim_m3_1 W=47 L=48 MF=1 m=1
-XR1 test net1 GND sky130_fd_pr__res_xhigh_po W=0.15 L=25000 mult=1 m=1
-XR2 out test GND sky130_fd_pr__res_xhigh_po W=0.15 L=500 mult=1 m=1
-XC1 in net1 sky130_fd_pr__cap_mim_m3_1 W=42 L=42 MF=1 m=1
+XC2 out GND sky130_fd_pr__cap_mim_m3_1 W=14 L=15 MF=1 m=1
+XR1 test net1 GND sky130_fd_pr__res_xhigh_po W=0.15 L=180000 mult=1 m=1
+XR2 out test GND sky130_fd_pr__res_xhigh_po W=0.15 L=1000 mult=1 m=1
+XC1 in net1 sky130_fd_pr__cap_mim_m3_1 W=22 L=22 MF=1 m=1
 .ends
 
 
