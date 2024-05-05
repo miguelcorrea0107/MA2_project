@@ -1,4 +1,4 @@
-** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/tb_inv_sky130_a_v1.sch
+** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/v1/tb_inv_sky130_a_v1.sch
 **.subckt tb_inv_sky130_a_v1
 VN VSS GND 0
 VP VCC GND 1.125
@@ -53,6 +53,7 @@ x1 out in inv_sky130_a_v1
   meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
   write tb_inv_sky130_a_tran_v1.raw v(in) v(out) avg_pw_total
 
+  exit 0
 .endc
 
 
@@ -60,8 +61,8 @@ x1 out in inv_sky130_a_v1
 **.ends
 
 * expanding   symbol:  inv_sky130_a_v1.sym # of pins=2
-** sym_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/inv_sky130_a_v1.sym
-** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/inv_sky130_a_v1.sch
+** sym_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/v1/inv_sky130_a_v1.sym
+** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/v1/inv_sky130_a_v1.sch
 .subckt inv_sky130_a_v1 out in
 *.ipin in
 *.opin out
