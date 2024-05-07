@@ -45,8 +45,8 @@ spice_ignore=false}
 C {devices/lab_pin.sym} 200 -60 2 0 {name=out sig_type=std_logic lab=out
 }
 C {devices/gnd.sym} 200 80 0 0 {name=l6 lab=GND}
-C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0.4487 ac 1e-3
-+ sin(0.4487 0.001 5000 0 0 0)" savecurrent=true}
+C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0.45 ac 1e-3
++ sin(0.45 0.001 5000 0 0 0)" savecurrent=true}
 C {devices/res.sym} 200 -10 0 0 {name=Rl
 value=1e60
 footprint=1206
@@ -67,11 +67,11 @@ C {devices/code.sym} 280 -35 2 1 {name=control only_toplevel=false value=".contr
   let cgdp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[cgd]
   write tb_inv_sky130_a_op_v2.raw gmn gmp gdsn gdsp cgsn cgsp cgdn cgdp
 
-  ac dec 1000 1 1e6
+  ac dec 1000 1 1e8
   save all
   let gain = db(v(out)/v(in))
   let phase = phase(v(out)/v(in))
-  write tb_inv_sky130_a_AC_v2.raw gain phase
+  write tb_inv_sky130_a_AC_v2.raw gain
 
   noise v(out) Vin dec 1000 300 10k 10
   save all
