@@ -5,64 +5,66 @@ K {}
 V {}
 S {}
 E {}
-N 260 90 260 110 {
+N 290 100 290 120 {
 lab=GND}
-N -220 0 -190 0 {
+N -220 10 -190 10 {
 lab=in}
-N 50 0 80 0 {
-lab=#net1}
-N 260 0 260 30 {
+N 50 10 80 10 {
+lab=vs1}
+N 290 10 290 40 {
 lab=out}
-N 80 0 100 0 {
-lab=#net1}
-N -130 0 -30 0 {
-lab=#net2}
-N -60 -100 -60 0 {
-lab=#net2}
-N 90 -100 90 -0 {
-lab=#net1}
-N 200 0 260 -0 {
+N 80 10 100 10 {
+lab=vs1}
+N -130 10 -30 10 {
+lab=vd1}
+N -60 -90 -60 10 {
+lab=vd1}
+N 90 -90 90 10 {
+lab=vs1}
+N 230 10 290 10 {
 lab=out}
-N -60 -120 -60 -100 {
-lab=#net2}
-N -60 -120 -30 -120 {
-lab=#net2}
-N 30 -120 90 -120 {
+N -60 -110 -60 -90 {
+lab=vd1}
+N -60 -110 -30 -110 {
+lab=vd1}
+N 30 -110 90 -110 {
+lab=vs1}
+N 90 -110 90 -90 {
+lab=vs1}
+N 0 -180 0 -150 {
+lab=vg1}
+N 0 -180 20 -180 {
+lab=vg1}
+N 90 -180 90 -110 {
+lab=vs1}
+N 80 -180 90 -180 {
+lab=vs1}
+N 160 -60 160 -30 {
 lab=#net1}
-N 90 -120 90 -100 {
+N 160 -60 180 -60 {
 lab=#net1}
-N 0 -190 -0 -160 {
-lab=#net3}
-N -0 -190 20 -190 {
-lab=#net3}
-N 90 -190 90 -120 {
-lab=#net1}
-N 80 -190 90 -190 {
-lab=#net1}
-N 130 -70 130 -40 {
-lab=#net4}
-N 130 -70 150 -70 {
-lab=#net4}
-N 220 -70 220 0 {
+N 250 -60 250 10 {
 lab=out}
-N 210 -70 220 -70 {
+N 240 -60 250 -60 {
 lab=out}
-N 160 0 170 0 {
+N 190 10 200 10 {
 lab=out}
-N 170 0 200 0 {
+N 200 10 230 10 {
 lab=out}
-C {sky130_tests/not.sym} 10 0 0 0 {name=x1 m=1 
+N 100 10 130 10 {
+lab=vs1}
+C {sky130_tests/not.sym} 10 10 0 0 {name=x1 m=1 
 + W_N=250 L_N=1 W_P=200 L_P=0.25
 + VCCPIN=VCC VSSPIN=VSS}
-C {devices/ipin.sym} -220 0 0 0 {name=p1 lab=in
+C {devices/ipin.sym} -220 10 0 0 {name=p1 lab=in
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 260 60 0 0 {name=C2 model=cap_mim_m3_1 W=35 L=35 MF=1 spiceprefix=X}
-C {devices/gnd.sym} 260 110 0 0 {name=l6 lab=GND}
-C {devices/title.sym} -430 160 0 0 {name=l3 author="Rafael Miguel Correa"}
-C {sky130_fd_pr/cap_mim_m3_1.sym} -160 0 3 0 {name=C1 model=cap_mim_m3_1 W=26 L=26 MF=1 spiceprefix=X}
-C {devices/opin.sym} 260 0 0 0 {name=p2 lab=out
+C {sky130_fd_pr/cap_mim_m3_1.sym} 290 70 0 0 {name=C2 model=cap_mim_m3_1 W=50 L=50 MF=1 spiceprefix=X}
+C {devices/gnd.sym} 290 120 0 0 {name=l6 lab=GND}
+C {devices/title.sym} -430 190 0 0 {name=l3 author="Rafael Miguel Correa"}
+C {sky130_fd_pr/cap_mim_m3_1.sym} -160 10 3 0 {name=C1 model=cap_mim_m3_1 W=26 L=26 MF=1 spiceprefix=X}
+C {devices/opin.sym} 290 10 0 0 {name=p2 lab=out
 }
-C {sky130_fd_pr/nfet3_01v8.sym} 0 -140 3 1 {name=M1
+C {sky130_fd_pr/nfet3_01v8.sym} 0 -130 3 1 {name=M1
 W=0.5
 L=0.15
 body=GND
@@ -77,8 +79,8 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 50 -190 3 0 {name=Vgs1 value="dc 0.26" savecurrent=false}
-C {sky130_fd_pr/nfet3_01v8.sym} 130 -20 3 1 {name=M2
+C {devices/vsource.sym} 50 -180 3 0 {name=Vgs1 value="dc 0.2" savecurrent=false}
+C {sky130_fd_pr/nfet3_01v8.sym} 160 -10 3 1 {name=M2
 W=0.5
 L=0.15
 body=GND
@@ -93,4 +95,12 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/vsource.sym} 180 -70 3 0 {name=Vgs2 value="dc 0.6" savecurrent=false}
+C {devices/vsource.sym} 210 -60 3 0 {name=Vgs2 value="dc 0.63" savecurrent=false}
+C {devices/lab_pin.sym} -70 10 3 0 {name=out1 sig_type=std_logic lab=vd1
+}
+C {devices/lab_pin.sym} 100 10 3 0 {name=out2 sig_type=std_logic lab=vs1
+}
+C {devices/lab_pin.sym} 0 -170 0 0 {name=out3 sig_type=std_logic lab=vg1
+}
+C {devices/lab_pin.sym} 160 -60 0 0 {name=out4 sig_type=std_logic lab=vg2
+}

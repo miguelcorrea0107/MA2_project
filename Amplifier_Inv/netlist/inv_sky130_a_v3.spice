@@ -1,16 +1,17 @@
-** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/v2/inv_sky130_a_v2.sch
-**.subckt inv_sky130_a_v2 out in
+** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/v3/inv_sky130_a_v3.sch
+**.subckt inv_sky130_a_v3 out in
 *.ipin in
 *.opin out
-x1 vs1 vd1 VCC VSS not W_N=250 L_N=1 W_P=200 L_P=0.25 m=1
-XC2 out GND sky130_fd_pr__cap_mim_m3_1 W=50 L=50 MF=1 m=1
-XC1 in vd1 sky130_fd_pr__cap_mim_m3_1 W=26 L=26 MF=1 m=1
-XM1 vd1 vg1 vs1 GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
+x1 net1 net2 VCC VSS not W_N=250 L_N=1 W_P=200 L_P=0.25 m=1
+XC1 in net2 sky130_fd_pr__cap_mim_m3_1 W=26 L=26 MF=1 m=1
+XM1 net2 net3 net1 GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 net1 net4 out GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-Vgs1 vg1 vs1 dc 0.2
-XM2 vs1 vg2 out GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
+Vgs1 net3 net1 dc 0.2
+Vgs2 net4 out dc 0.63
+XM3 GND out GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-Vgs2 vg2 out dc 0.63
 **.ends
 
 * expanding   symbol:  sky130_tests/not.sym # of pins=2

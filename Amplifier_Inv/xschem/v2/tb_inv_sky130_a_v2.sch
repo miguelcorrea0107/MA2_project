@@ -45,8 +45,8 @@ spice_ignore=false}
 C {devices/lab_pin.sym} 200 -60 2 0 {name=out sig_type=std_logic lab=out
 }
 C {devices/gnd.sym} 200 80 0 0 {name=l6 lab=GND}
-C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0.45 ac 1e-3
-+ sin(0.45 0.001 5000 0 0 0)" savecurrent=true}
+C {devices/vsource.sym} -90 0 0 0 {name=Vin value="0.44866 ac 1e-3
++ sin(0.44866 0.001 5000 0 0 0)" savecurrent=true}
 C {devices/res.sym} 200 -10 0 0 {name=Rl
 value=1e60
 footprint=1206
@@ -90,7 +90,8 @@ C {devices/code.sym} 280 -35 2 1 {name=control only_toplevel=false value=".contr
   meas tran avg_pw_total AVG pw_total FROM=0 TO=2m
   meas tran avg_pw_in AVG pw_in FROM=0 TO=2m
   meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
-  write tb_inv_sky130_a_tran_v2.raw v(in) v(out) avg_pw_total
+  write tb_inv_sky130_a_tran_v2.raw v(in) v(out) v(x1.vd1) v(x1.vs1) v(x1.vg1) v(x1.vg2) avg_pw_total
+
 
 .endc
 "

@@ -1,12 +1,15 @@
-** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/v2/tb_inv_sky130_a_v2.sch
-**.subckt tb_inv_sky130_a_v2
+** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/v3/tb_inv_sky130_a_v3.sch
+**.subckt tb_inv_sky130_a_v3
 VN VSS GND 0
-VP VCC GND 1.125
+VP VCC GND dc 1.125
 .save i(vp)
-Vin in GND 0.44866 ac 1e-3 sin(0.44866 0.001 5000 0 0 0)
+Vin in GND 0.51439 ac 1e-3 sin(0.51439 0.001 5000 0 0 0)
 .save i(vin)
 Rl out GND 1e60 m=1
-x1 out in inv_sky130_a_v2
+VG2 VG2 GND dc 0.1.14439
+VG1 VG1 GND dc 1.125
+.save i(vg1)
+x1 out in inv_sky130_a_v3
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -26,33 +29,34 @@ x1 out in inv_sky130_a_v2
   let cgsp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[cgs]
   let cgdn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[cgd]
   let cgdp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[cgd]
-  write tb_inv_sky130_a_op_v2.raw gmn gmp gdsn gdsp cgsn cgsp cgdn cgdp
+  write tb_inv_sky130_a_op_v3.raw gmn gmp gdsn gdsp cgsn cgsp cgdn cgdp
 
   ac dec 1000 1 1e8
   save all
   let gain = db(v(out)/v(in))
   let phase = phase(v(out)/v(in))
-  write tb_inv_sky130_a_AC_v2.raw gain
+  write tb_inv_sky130_a_AC_v3.raw gain
 
   noise v(out) Vin dec 1000 300 10k 10
   save all
-  write tb_inv_sky130_a_noise_v2.raw
+  write tb_inv_sky130_a_noise_v3.raw
 
   noise v(out) Vin dec 1000 300 10k
   save all
   setplot noise1
-  write tb_inv_sky130_a_noise_spectrum_v2.raw
+  write tb_inv_sky130_a_noise_spectrum_v3.raw
 
   tran 0.1u 4m
   save all
   let pw_in = i(Vin)*v(in)
-  let pw_vcc = i(Vp)*1,125
+  let pw_vcc = i(Vp)*1.125
+  let pw_vg1 = i(Vg1)*0.64866
+  let pw_vg2 = i(Vg2)*1.07866
   let pw_total = pw_in+pw_vcc
   meas tran avg_pw_total AVG pw_total FROM=0 TO=2m
   meas tran avg_pw_in AVG pw_in FROM=0 TO=2m
   meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
-  write tb_inv_sky130_a_tran_v2.raw v(in) v(out) v(x1.vd1) v(x1.vs1) v(x1.vg1) v(x1.vg2) avg_pw_total
-
+  write tb_inv_sky130_a_tran_v3.raw v(in) v(out) v(x1.vd1) v(x1.vs1) v(vg1) v(vg2) avg_pw_total
 
 .endc
 
@@ -60,21 +64,19 @@ x1 out in inv_sky130_a_v2
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  v2/inv_sky130_a_v2.sym # of pins=2
-** sym_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/v2/inv_sky130_a_v2.sym
-** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/v2/inv_sky130_a_v2.sch
-.subckt inv_sky130_a_v2 out in
+* expanding   symbol:  v3/inv_sky130_a_v3.sym # of pins=2
+** sym_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/v3/inv_sky130_a_v3.sym
+** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/v3/inv_sky130_a_v3.sch
+.subckt inv_sky130_a_v3 out in
 *.ipin in
 *.opin out
-x1 vs1 vd1 VCC VSS not W_N=250 L_N=1 W_P=200 L_P=0.25 m=1
+x1 VS1 VD1 VCC VSS not W_N=250 L_N=1 W_P=200 L_P=0.25 m=1
+XC1 in VD1 sky130_fd_pr__cap_mim_m3_1 W=26 L=26 MF=1 m=1
+XM1 VD1 VG1 VS1 GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 VS1 VG2 out GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XC2 out GND sky130_fd_pr__cap_mim_m3_1 W=50 L=50 MF=1 m=1
-XC1 in vd1 sky130_fd_pr__cap_mim_m3_1 W=26 L=26 MF=1 m=1
-XM1 vd1 vg1 vs1 GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-Vgs1 vg1 vs1 dc 0.2
-XM2 vs1 vg2 out GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-Vgs2 vg2 out dc 0.63
 .ends
 
 
@@ -93,4 +95,6 @@ XM2 y a VCCPIN VCCPIN sky130_fd_pr__pfet_01v8 L=L_P W=W_P nf=1 ad='int((nf+1)/2)
 .GLOBAL GND
 .GLOBAL VSS
 .GLOBAL VCC
+.GLOBAL VG2
+.GLOBAL VG1
 .end
