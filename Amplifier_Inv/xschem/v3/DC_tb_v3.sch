@@ -100,8 +100,6 @@ C {devices/code.sym} 530 -85 0 1 {name=control only_toplevel=false value=".contr
   save all v(out) v(vg1) v(vg2) v(vs1) v(vd1)
   write tb_inv_sky130_a_DC_v3.raw v(out) v(vg1) v(vg2) v(vs1) v(vd1)
 
-  
-  
   exit 0
 .endc
 "
@@ -154,8 +152,8 @@ C {devices/gnd.sym} -510 140 0 0 {name=l12 lab=GND}
 C {devices/gnd.sym} -600 140 0 0 {name=l14 lab=GND}
 C {devices/vdd.sym} -510 0 0 0 {name=l15 lab=VSS}
 C {devices/vdd.sym} -600 0 0 0 {name=l16 lab=VCC}
-C {devices/vsource.sym} -350 60 0 0 {name=VG2 value="dc 1.07866" savecurrent=false}
-C {devices/vsource.sym} -440 60 0 0 {name=VG1 value="dc 0.64866" savecurrent=false}
+C {devices/vsource.sym} -350 60 0 0 {name=VG2 value="dc 1.14439" savecurrent=false}
+C {devices/vsource.sym} -440 60 0 0 {name=VG1 value="dc 0.714" savecurrent=false}
 C {devices/gnd.sym} -350 140 0 0 {name=l17 lab=GND}
 C {devices/gnd.sym} -440 140 0 0 {name=l18 lab=GND}
 C {devices/vdd.sym} -350 0 0 0 {name=l19 lab=VG2}

@@ -6,8 +6,8 @@ VP VCC GND dc 1.125
 Vin in GND 0.51439 ac 1e-3 sin(0.51439 0.001 5000 0 0 0)
 .save i(vin)
 Rl out GND 1e60 m=1
-VG2 VG2 GND dc 0.1.14439
-VG1 VG1 GND dc 1.125
+VG2 VG2 GND dc 1.14439
+VG1 VG1 GND dc 0.714
 .save i(vg1)
 x1 out in inv_sky130_a_v3
 **** begin user architecture code
@@ -34,8 +34,9 @@ x1 out in inv_sky130_a_v3
   ac dec 1000 1 1e8
   save all
   let gain = db(v(out)/v(in))
+  let gain_vs1 = db(v(x1.vs1)/v(in))
   let phase = phase(v(out)/v(in))
-  write tb_inv_sky130_a_AC_v3.raw gain
+  write tb_inv_sky130_a_AC_v3.raw gain gain_vs1
 
   noise v(out) Vin dec 1000 300 10k 10
   save all
@@ -45,6 +46,10 @@ x1 out in inv_sky130_a_v3
   save all
   setplot noise1
   write tb_inv_sky130_a_noise_spectrum_v3.raw
+
+  dc Vin 0 1.125 0.00001
+  save all v(out) v(x1.vg1) v(x1.vg2) v(x1.vs1) v(x1.vd1)
+  write tb_inv_sky130_a_DC_v3.raw v(out) v(x1.vg1) v(x1.vg2) v(x1.vs1) v(x1.vd1)
 
   tran 0.1u 4m
   save all
@@ -57,6 +62,8 @@ x1 out in inv_sky130_a_v3
   meas tran avg_pw_in AVG pw_in FROM=0 TO=2m
   meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
   write tb_inv_sky130_a_tran_v3.raw v(in) v(out) v(x1.vd1) v(x1.vs1) v(vg1) v(vg2) avg_pw_total
+
+  exit 0
 
 .endc
 
