@@ -78,10 +78,10 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 260 40 0 0 {name=C2 model=cap_mim_m3_1 W=50 L=50 MF=1 spiceprefix=X}
 C {devices/gnd.sym} 260 90 0 0 {name=l6 lab=GND}
 C {devices/lab_pin.sym} 0 -210 0 0 {name=p149 lab=VG1}
 C {devices/lab_pin.sym} 130 -90 2 0 {name=p3 lab=VG2}
 C {devices/lab_pin.sym} 90 -140 1 0 {name=p4 lab=VS1}
 C {devices/lab_pin.sym} -80 -20 3 0 {name=out1 sig_type=std_logic lab=VD1
 }
+C {sky130_fd_pr/cap_mim_m3_1.sym} 260 40 0 0 {name=C2 model=cap_mim_m3_1 W=50 L=50 MF=1 spiceprefix=X}

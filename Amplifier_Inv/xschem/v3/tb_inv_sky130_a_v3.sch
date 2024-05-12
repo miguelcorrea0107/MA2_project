@@ -99,8 +99,8 @@ C {devices/code.sym} 240 -85 2 1 {name=control only_toplevel=false value=".contr
   save all
   let pw_in = i(Vin)*v(in)
   let pw_vcc = i(Vp)*1.125
-  let pw_vg1 = i(Vg1)*0.64866
-  let pw_vg2 = i(Vg2)*1.07866
+  let pw_vg1 = i(Vg1)*0.725
+  let pw_vg2 = i(Vg2)*1.085
   let pw_total = pw_in+pw_vcc
   meas tran avg_pw_total AVG pw_total FROM=0 TO=2m
   meas tran avg_pw_in AVG pw_in FROM=0 TO=2m
@@ -114,8 +114,8 @@ C {devices/code.sym} 240 -85 2 1 {name=control only_toplevel=false value=".contr
 savecurrent = true
 }
 C {devices/vdd.sym} -480 -110 0 0 {name=l5 lab=VCC}
-C {devices/vsource.sym} -230 -50 0 0 {name=VG2 value="dc 1.14439" savecurrent=false}
-C {devices/vsource.sym} -320 -50 0 0 {name=VG1 value="dc 0.714" savecurrent=true}
+C {devices/vsource.sym} -230 -50 0 0 {name=VG2 value="dc 1.085" savecurrent=false}
+C {devices/vsource.sym} -320 -50 0 0 {name=VG1 value="dc 0.725" savecurrent=true}
 C {devices/gnd.sym} -230 30 0 0 {name=l8 lab=GND}
 C {devices/gnd.sym} -320 30 0 0 {name=l9 lab=GND}
 C {devices/vdd.sym} -230 -110 0 0 {name=l10 lab=VG2}

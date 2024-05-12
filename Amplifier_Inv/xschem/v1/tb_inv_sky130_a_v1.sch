@@ -82,6 +82,10 @@ C {devices/code.sym} 280 -35 2 1 {name=control only_toplevel=false value=".contr
   setplot noise1
   write tb_inv_sky130_a_noise_spectrum_v1.raw
 
+  dc Vin 0 1.125 0.00001
+  save all v(in) v(out)
+  write tb_inv_sky130_a_DC_v1.raw v(in) v(out)
+
   tran 0.1u 4m
   save all
   let pw_in = i(Vin)*v(in)

@@ -6,8 +6,8 @@ VP VCC GND dc 1.125
 Vin in GND 0.51439 ac 1e-3 sin(0.51439 0.001 5000 0 0 0)
 .save i(vin)
 Rl out GND 1e60 m=1
-VG2 VG2 GND dc 1.14439
-VG1 VG1 GND dc 0.714
+VG2 VG2 GND dc 1.085
+VG1 VG1 GND dc 0.725
 .save i(vg1)
 x1 out in inv_sky130_a_v3
 **** begin user architecture code
@@ -55,8 +55,8 @@ x1 out in inv_sky130_a_v3
   save all
   let pw_in = i(Vin)*v(in)
   let pw_vcc = i(Vp)*1.125
-  let pw_vg1 = i(Vg1)*0.64866
-  let pw_vg2 = i(Vg2)*1.07866
+  let pw_vg1 = i(Vg1)*0.725
+  let pw_vg2 = i(Vg2)*1.085
   let pw_total = pw_in+pw_vcc
   meas tran avg_pw_total AVG pw_total FROM=0 TO=2m
   meas tran avg_pw_in AVG pw_in FROM=0 TO=2m
