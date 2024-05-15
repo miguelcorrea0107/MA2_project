@@ -15,33 +15,44 @@ N -270 -110 -270 -80 {
 lab=VSS}
 N -10 -20 -10 30 {
 lab=GND}
-N 210 -110 280 -110 {
+N 270 -140 340 -140 {
 lab=out}
-N 280 -110 280 -90 {
+N 340 -140 340 -120 {
 lab=out}
-N 280 -30 280 30 {
+N 340 -60 340 0 {
 lab=GND}
 N -10 -110 80 -110 {
 lab=in}
 N -360 -110 -360 -80 {
 lab=VCC}
-N -200 -20 -200 30 {
+N -90 -20 -90 30 {
 lab=GND}
-N -110 -20 -110 30 {
+N -180 -20 -180 30 {
 lab=GND}
-N -110 -110 -110 -80 {
-lab=VG2}
-N -200 -110 -200 -80 {
-lab=VG1}
+N -180 -110 -180 -80 {
+lab=#net1}
+N -90 -110 -90 -80 {
+lab=#net2}
+N 340 -0 340 30 {
+lab=GND}
+N -90 -140 -90 -110 {
+lab=#net2}
+N -90 -140 80 -140 {
+lab=#net2}
+N -180 -170 80 -170 {
+lab=#net1}
+N -180 -170 -180 -120 {
+lab=#net1}
+N -180 -120 -180 -110 {
+lab=#net1}
 C {devices/gnd.sym} -10 30 0 0 {name=l1 lab=GND}
 C {devices/vsource.sym} -270 -50 0 0 {name=VN value=0 savecurrent=false}
 C {devices/vsource.sym} -360 -50 0 0 {name=VP value="dc 1.125" savecurrent=true}
 C {devices/gnd.sym} -270 30 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} -360 30 0 0 {name=l3 lab=GND}
-C {devices/vdd.sym} -270 -110 0 0 {name=l4 lab=VSS}
 C {devices/lab_pin.sym} -10 -110 0 0 {name=in sig_type=std_logic lab=in
 }
-C {devices/code.sym} 365 -10 0 0 {name=TT_MODELS
+C {devices/code.sym} 375 -10 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -50,29 +61,29 @@ value="
 
 "
 spice_ignore=false}
-C {devices/lab_pin.sym} 280 -110 2 0 {name=out sig_type=std_logic lab=out
+C {devices/lab_pin.sym} 340 -140 2 0 {name=out sig_type=std_logic lab=out
 }
-C {devices/gnd.sym} 280 30 0 0 {name=l6 lab=GND}
-C {devices/vsource.sym} -10 -50 0 0 {name=Vin value="0.51439 ac 1e-3
-+ sin(0.51439 0.001 5000 0 0 0)" savecurrent=true}
-C {devices/res.sym} 280 -60 0 0 {name=Rl
+C {devices/gnd.sym} 340 30 0 0 {name=l6 lab=GND}
+C {devices/vsource.sym} -10 -50 0 0 {name=Vin value="0.48424 ac 1e-3
++ sin(0.48424 0.001 5000 0 0 0)" savecurrent=true}
+C {devices/res.sym} 340 -90 0 0 {name=Rl
 value=1e60
 footprint=1206
 device=resistor
 m=1}
 C {devices/title.sym} -260 140 0 0 {name=l7 author="Rafael Miguel Correa"}
-C {devices/code.sym} 360 -85 2 1 {name=control only_toplevel=false value=".control
+C {devices/code.sym} 370 -85 2 1 {name=control only_toplevel=false value=".control
   
   op
   save all 
-  let gmn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[gm]
-  let gmp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[gm]
-  let gdsn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[gds]
-  let gdsp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[gds]
-  let cgsn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[cgs]
-  let cgsp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[cgs]
-  let cgdn = @m.x1.x1.xm1.msky130_fd_pr__nfet_01v8[cgd]
-  let cgdp = @m.x1.x1.xm2.msky130_fd_pr__pfet_01v8[cgd]
+  let gmn = @m.x1.xm4.msky130_fd_pr__nfet_01v8[gm]
+  let gmp = @m.x1.xm5'.msky130_fd_pr__pfet_01v8[gm]
+  let gdsn = @m.x1.xm4.msky130_fd_pr__nfet_01v8[gds]
+  let gdsp = @m.x1.xm5.msky130_fd_pr__pfet_01v8[gds]
+  let cgsn = @m.x1.xm4.msky130_fd_pr__nfet_01v8[cgs]
+  let cgsp = @m.x1.xm5.msky130_fd_pr__pfet_01v8[cgs]
+  let cgdn = @m.x1.xm4.msky130_fd_pr__nfet_01v8[cgd]
+  let cgdp = @m.x1.xm5.msky130_fd_pr__pfet_01v8[cgd]
   write tb_inv_sky130_a_op_v4.raw gmn gmp gdsn gdsp cgsn cgsp cgdn cgdp
 
   ac dec 1000 1 1e8
@@ -112,11 +123,12 @@ C {devices/code.sym} 360 -85 2 1 {name=control only_toplevel=false value=".contr
 "
 savecurrent = true
 }
-C {devices/vdd.sym} -360 -110 0 0 {name=l5 lab=VCC}
-C {devices/vsource.sym} -110 -50 0 0 {name=VG2 value="dc 1.085" savecurrent=false}
-C {devices/vsource.sym} -200 -50 0 0 {name=VG1 value="dc 0.725" savecurrent=false}
-C {devices/gnd.sym} -110 30 0 0 {name=l8 lab=GND}
-C {devices/gnd.sym} -200 30 0 0 {name=l9 lab=GND}
-C {devices/vdd.sym} -110 -110 0 0 {name=l10 lab=VG2}
-C {devices/vdd.sym} -200 -110 0 0 {name=l11 lab=VG1}
-C {v4/inv_sky130_a_v4.sym} 140 -110 0 0 {name=x1}
+C {devices/vsource.sym} -180 -50 0 0 {name=VG2 value="dc 1.085" savecurrent=false}
+C {devices/vsource.sym} -90 -50 0 0 {name=VG1 value="dc 0.725" savecurrent=false}
+C {devices/gnd.sym} -180 30 0 0 {name=l8 lab=GND}
+C {devices/gnd.sym} -90 30 0 0 {name=l9 lab=GND}
+C {v4/inv_sky130_a_v4.sym} 170 -140 0 0 {name=x1}
+C {devices/lab_pin.sym} -360 -110 2 0 {name=p1 sig_type=std_logic lab=VCC}
+C {devices/lab_pin.sym} -270 -110 0 1 {name=p2 sig_type=std_logic lab=VSS}
+C {devices/lab_pin.sym} 170 -190 2 0 {name=p3 sig_type=std_logic lab=VCC}
+C {devices/lab_pin.sym} 170 -90 2 0 {name=p4 sig_type=std_logic lab=VSS}

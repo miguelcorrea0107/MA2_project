@@ -7,57 +7,86 @@ S {}
 E {}
 N -230 -10 -200 -10 {
 lab=in}
-N 40 -10 70 -10 {
+N 130 -10 160 -10 {
 lab=VS1}
-N 250 -10 250 20 {
+N 340 -10 340 20 {
 lab=out}
-N 70 -10 90 -10 {
+N 160 -10 180 -10 {
 lab=VS1}
 N -140 -10 -40 -10 {
 lab=VD1}
 N -70 -110 -70 -10 {
 lab=VD1}
-N 80 -110 80 -10 {
+N 170 -110 170 -10 {
 lab=VS1}
-N 190 -10 250 -10 {
+N 280 -10 340 -10 {
 lab=out}
 N -70 -130 -70 -110 {
 lab=VD1}
-N -70 -130 -40 -130 {
+N -60 -240 -30 -240 {
 lab=VD1}
-N 20 -130 80 -130 {
+N 30 -240 90 -240 {
 lab=VS1}
-N 80 -130 80 -110 {
+N 170 -130 170 -110 {
 lab=VS1}
-N 150 -10 160 -10 {
+N 240 -10 250 -10 {
 lab=out}
-N 160 -10 190 -10 {
+N 250 -10 280 -10 {
 lab=out}
-N -10 -200 -10 -170 {
+N 0 -310 0 -280 {
 lab=VG1}
-N 120 -80 120 -50 {
+N 210 -80 210 -50 {
 lab=VG2}
-N 250 80 250 100 {
-lab=GND}
-N 220 60 220 80 {
-lab=GND}
-N 220 80 280 80 {
-lab=GND}
-N 280 60 280 80 {
-lab=GND}
-C {sky130_tests/not.sym} 0 -10 0 0 {name=x1 m=1 
-+ W_N=250 L_N=1 W_P=200 L_P=0.25
-+ VCCPIN=VCC VSSPIN=VSS}
+N 340 80 340 100 {
+lab=VSS}
+N 310 60 310 80 {
+lab=VSS}
+N 310 80 370 80 {
+lab=VSS}
+N 370 60 370 80 {
+lab=VSS}
+N 40 -10 40 20 {lab=VS1}
+N 40 -10 80 -10 {lab=VS1}
+N 0 -10 0 50 {lab=VD1}
+N -40 -10 0 -10 {lab=VD1}
+N 40 -150 40 -110 {lab=VCC}
+N 40 90 40 110 {lab=VSS}
+N 40 50 120 50 { lab=VSS}
+N 120 50 120 90 { lab=VSS}
+N 40 90 120 90 { lab=VSS}
+N 40 -110 120 -110 { lab=VCC}
+N 120 -110 120 -70 { lab=VCC}
+N 40 -70 120 -70 { lab=VCC}
+N 0 -70 0 -10 { lab=VD1}
+N 40 -40 40 -10 {lab=VS1}
+N 40 80 40 90 { lab=VSS}
+N 40 -110 40 -100 { lab=VCC}
+N -70 -240 -70 -130 {
+lab=VD1}
+N -70 -240 -60 -240 {
+lab=VD1}
+N 90 -240 170 -240 {
+lab=VS1}
+N 170 -240 170 -130 {
+lab=VS1}
+N 80 -10 130 -10 {
+lab=VS1}
+N 40 120 340 120 {
+lab=VSS}
+N 40 110 40 120 {
+lab=VSS}
+N 340 100 340 120 {
+lab=VSS}
 C {devices/ipin.sym} -230 -10 0 0 {name=p1 lab=in
 }
-C {devices/title.sym} -440 150 0 0 {name=l3 author="Rafael Miguel Correa"}
+C {devices/title.sym} -440 170 0 0 {name=l3 author="Rafael Miguel Correa"}
 C {sky130_fd_pr/cap_mim_m3_1.sym} -170 -10 3 0 {name=C1 model=cap_mim_m3_1 W=26 L=26 MF=1 spiceprefix=X}
-C {devices/opin.sym} 250 -10 0 0 {name=p2 lab=out
+C {devices/opin.sym} 340 -10 0 0 {name=p2 lab=out
 }
-C {sky130_fd_pr/nfet3_01v8.sym} -10 -150 3 1 {name=M1
+C {sky130_fd_pr/nfet3_01v8.sym} 0 -260 3 1 {name=M1
 W=0.5
 L=0.15
-body=GND
+body=VSS
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -69,10 +98,10 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/nfet3_01v8.sym} 120 -30 3 1 {name=M2
+C {sky130_fd_pr/nfet3_01v8.sym} 210 -30 3 1 {name=M2
 W=0.5
 L=0.15
-body=GND
+body=VSS
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -84,16 +113,13 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/gnd.sym} 250 100 0 0 {name=l6 lab=GND}
-C {devices/lab_pin.sym} -10 -200 0 0 {name=p149 lab=VG1}
-C {devices/lab_pin.sym} 120 -80 2 0 {name=p3 lab=VG2}
-C {devices/lab_pin.sym} 80 -130 1 0 {name=p4 lab=VS1}
+C {devices/lab_pin.sym} 90 -240 1 0 {name=out2 lab=VS1}
 C {devices/lab_pin.sym} -90 -10 3 0 {name=out1 sig_type=std_logic lab=VD1
 }
-C {sky130_fd_pr/nfet3_01v8.sym} 250 40 3 1 {name=M3
+C {sky130_fd_pr/nfet3_01v8.sym} 340 40 3 1 {name=M3
 W=100
 L=10
-body=GND
+body=VSS
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -104,4 +130,26 @@ nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
+}
+C {devices/ipin.sym} 0 -310 0 0 {name=p3 lab=VG1
+}
+C {devices/ipin.sym} 210 -80 2 0 {name=p5 lab=VG2
+}
+C {sky130_fd_pr/nfet_01v8.sym} 20 50 0 0 {name=M4
+L=1
+W=250
+nf=1 mult=1
+model=nfet_01v8
+spiceprefix=X
+}
+C {sky130_fd_pr/pfet_01v8.sym} 20 -70 0 0 {name=M5
+L=0.25
+W=200
+nf=1 mult=1
+model=pfet_01v8
+spiceprefix=X
+}
+C {devices/ipin.sym} 40 120 0 0 {name=p4 lab=VSS
+}
+C {devices/ipin.sym} 40 -150 0 0 {name=p7 lab=VCC
 }

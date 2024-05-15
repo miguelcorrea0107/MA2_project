@@ -1,0 +1,76 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1715797935
+<< checkpaint >>
+rect 7875 -3525 10837 39433
+<< error_s >>
+rect 5870 -1603 5905 -1569
+rect 5871 -1622 5905 -1603
+rect 5701 -1671 5759 -1665
+rect 5701 -1705 5713 -1671
+rect 5701 -1711 5759 -1705
+rect 5701 -1881 5759 -1875
+rect 5701 -1915 5713 -1881
+rect 5701 -1921 5759 -1915
+rect 5890 -2017 5905 -1622
+rect 5924 -1656 5959 -1622
+rect 5924 -2017 5958 -1656
+rect 6070 -1724 6128 -1718
+rect 6070 -1758 6082 -1724
+rect 6070 -1764 6128 -1758
+rect 6070 -1934 6128 -1928
+rect 6070 -1968 6082 -1934
+rect 6070 -1974 6128 -1968
+rect 5924 -2051 5939 -2017
+rect 6259 -2070 6274 -1622
+rect 6293 -2070 6327 -1568
+rect 6293 -2104 6308 -2070
+rect 8598 -2123 8613 18225
+rect 8632 -2123 8666 18279
+rect 8632 -2157 8647 -2123
+<< metal1 >>
+rect 0 0 200 200
+rect 0 -400 200 -200
+rect 0 -800 200 -600
+rect 0 -1200 200 -1000
+rect 0 -1600 200 -1400
+rect 0 -2000 200 -1800
+use sky130_fd_pr__cap_mim_m3_1_5UY5E6  XC1
+timestamp 0
+transform 1 0 2786 0 1 640
+box -2786 -2640 2786 2640
+use sky130_fd_pr__nfet_01v8_L9ESAD  XM1
+timestamp 0
+transform 1 0 5730 0 1 -1793
+box -211 -260 211 260
+use sky130_fd_pr__nfet_01v8_L9ESAD  XM2
+timestamp 0
+transform 1 0 6099 0 1 -1846
+box -211 -260 211 260
+use sky130_fd_pr__nfet_01v8_U5BA5L  XM3
+timestamp 0
+transform 1 0 7453 0 1 8051
+box -1196 -10210 1196 10210
+use sky130_fd_pr__nfet_01v8_B378K8  XM4
+timestamp 0
+transform 1 0 8892 0 1 22998
+box -296 -25210 296 25210
+use sky130_fd_pr__pfet_01v8_QDBGFL  XM5
+timestamp 0
+transform 1 0 9356 0 1 17954
+box -221 -20219 221 20219
+<< labels >>
+flabel metal1 0 0 200 200 0 FreeSans 256 0 0 0 VG1
+port 0 nsew
+flabel metal1 0 -400 200 -200 0 FreeSans 256 0 0 0 VCC
+port 1 nsew
+flabel metal1 0 -800 200 -600 0 FreeSans 256 0 0 0 VG2
+port 2 nsew
+flabel metal1 0 -1200 200 -1000 0 FreeSans 256 0 0 0 out
+port 3 nsew
+flabel metal1 0 -1600 200 -1400 0 FreeSans 256 0 0 0 in
+port 4 nsew
+flabel metal1 0 -2000 200 -1800 0 FreeSans 256 0 0 0 VSS
+port 5 nsew
+<< end >>
