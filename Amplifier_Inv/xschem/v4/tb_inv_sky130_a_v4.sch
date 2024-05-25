@@ -64,8 +64,8 @@ spice_ignore=false}
 C {devices/lab_pin.sym} 340 -140 2 0 {name=out sig_type=std_logic lab=out
 }
 C {devices/gnd.sym} 340 30 0 0 {name=l6 lab=GND}
-C {devices/vsource.sym} -10 -50 0 0 {name=Vin value="0.48424 ac 1e-3
-+ sin(0.48424 0.001 5000 0 0 0)" savecurrent=true}
+C {devices/vsource.sym} -10 -50 0 0 {name=Vin value="0.48731 ac 1e-3
++ sin(0.48731 0.001 5000 0 0 0)" savecurrent=true}
 C {devices/res.sym} 340 -90 0 0 {name=Rl
 value=1e60
 footprint=1206

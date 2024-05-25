@@ -120,7 +120,7 @@ C {sky130_fd_pr/nfet3_01v8.sym} 340 40 3 1 {name=M3
 W=100
 L=10
 body=VSS
-nf=1
+nf=4
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
@@ -138,14 +138,14 @@ C {devices/ipin.sym} 210 -80 2 0 {name=p5 lab=VG2
 C {sky130_fd_pr/nfet_01v8.sym} 20 50 0 0 {name=M4
 L=1
 W=250
-nf=1 mult=1
+nf=10 mult=1
 model=nfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 20 -70 0 0 {name=M5
 L=0.25
 W=200
-nf=1 mult=1
+nf=8 mult=1
 model=pfet_01v8
 spiceprefix=X
 }
@@ -153,3 +153,12 @@ C {devices/ipin.sym} 40 120 0 0 {name=p4 lab=VSS
 }
 C {devices/ipin.sym} 40 -150 0 0 {name=p7 lab=VCC
 }
+C {devices/code.sym} 475 -240 0 0 {name=TT_MODELS
+only_toplevel=true
+format="tcleval( @value )"
+value="
+** opencircuitdesign pdks install
+.lib $::SKYWATER_MODELS/sky130.lib.spice tt
+
+"
+spice_ignore=false}
