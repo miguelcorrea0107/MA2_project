@@ -62,11 +62,11 @@ Netlists match uniquely.
 Subcircuit pins:
 Circuit 1: inv_sky130_a_v4                 |Circuit 2: inv_sky130_a_v4                 
 -------------------------------------------|-------------------------------------------
-out                                        |out                                        
 VCC                                        |VCC                                        
+out                                        |out                                        
 in                                         |in                                         
-VG1                                        |VG1                                        
 VG2                                        |VG2                                        
+VG1                                        |VG1                                        
 VSS                                        |VSS                                        
 ---------------------------------------------------------------------------------------
 Cell pin lists are equivalent.

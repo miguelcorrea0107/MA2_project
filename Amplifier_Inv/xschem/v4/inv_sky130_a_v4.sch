@@ -77,59 +77,20 @@ N 40 110 40 120 {
 lab=VSS}
 N 340 100 340 120 {
 lab=VSS}
+N -0 -240 -0 -200 {
+lab=VSS}
+N 210 -10 210 30 {
+lab=VSS}
+N 340 60 340 80 {
+lab=VSS}
 C {devices/ipin.sym} -230 -10 0 0 {name=p1 lab=in
 }
 C {devices/title.sym} -440 170 0 0 {name=l3 author="Rafael Miguel Correa"}
 C {sky130_fd_pr/cap_mim_m3_1.sym} -170 -10 3 0 {name=C1 model=cap_mim_m3_1 W=26 L=26 MF=1 spiceprefix=X}
 C {devices/opin.sym} 340 -10 0 0 {name=p2 lab=out
 }
-C {sky130_fd_pr/nfet3_01v8.sym} 0 -260 3 1 {name=M1
-W=0.5
-L=0.15
-body=VSS
-nf=1
-mult=1
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=nfet_01v8
-spiceprefix=X
-}
-C {sky130_fd_pr/nfet3_01v8.sym} 210 -30 3 1 {name=M2
-W=0.5
-L=0.15
-body=VSS
-nf=1
-mult=1
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=nfet_01v8
-spiceprefix=X
-}
 C {devices/lab_pin.sym} 90 -240 1 0 {name=out2 lab=VS1}
 C {devices/lab_pin.sym} -90 -10 3 0 {name=out1 sig_type=std_logic lab=VD1
-}
-C {sky130_fd_pr/nfet3_01v8.sym} 340 40 3 1 {name=M3
-W=100
-L=10
-body=VSS
-nf=4
-mult=1
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=nfet_01v8
-spiceprefix=X
 }
 C {devices/ipin.sym} 0 -310 0 0 {name=p3 lab=VG1
 }
@@ -162,3 +123,26 @@ value="
 
 "
 spice_ignore=false}
+C {sky130_fd_pr/nfet_01v8.sym} 210 -30 3 1 {name=M2
+L=0.15
+W=0.5
+nf=1 mult=1
+model=nfet_01v8
+spiceprefix=X
+}
+C {sky130_fd_pr/nfet_01v8.sym} 340 40 3 1 {name=M3
+L=10
+W=100
+nf=4 mult=1
+model=nfet_01v8
+spiceprefix=X
+}
+C {sky130_fd_pr/nfet_01v8.sym} 0 -260 3 1 {name=M1
+L=0.15
+W=0.5
+nf=1 mult=1
+model=nfet_01v8
+spiceprefix=X
+}
+C {devices/lab_pin.sym} 0 -200 2 0 {name=out3 lab=VSS}
+C {devices/lab_pin.sym} 210 30 2 0 {name=out4 lab=VSS}
