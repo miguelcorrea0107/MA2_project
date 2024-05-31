@@ -60,9 +60,8 @@ x1 net2 VCC net1 out in VSS inv_sky130_a_v4
   meas tran avg_pw_total AVG pw_total FROM=0 TO=2m
   meas tran avg_pw_in AVG pw_in FROM=0 TO=2m
   meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
-  write tb_inv_sky130_a_tran_v4.raw v(in) v(out) v(x1.vd1) v(x1.vs1) v(vg1) v(vg2) avg_pw_total
+  write tb_inv_sky130_a_tran_v4.raw v(in) v(out) avg_pw_total
 
-  exit 0
 .endc
 
 
@@ -80,15 +79,15 @@ x1 net2 VCC net1 out in VSS inv_sky130_a_v4
 *.ipin VSS
 *.ipin VCC
 XC1 in VD1 sky130_fd_pr__cap_mim_m3_1 W=26 L=26 MF=1 m=1
-XM1 VD1 VG1 VS1 VSS sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
+XM4 VS1 VD1 VSS VSS sky130_fd_pr__nfet_01v8 L=1 W=250 nf=10 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
++ * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM5 VS1 VD1 VCC VCC sky130_fd_pr__pfet_01v8 L=0.25 W=200 nf=8 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
 + * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM2 VS1 VG2 out VSS sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
 + * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM3 VSS out VSS VSS sky130_fd_pr__nfet_01v8 L=10 W=100 nf=4 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
 + * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM4 VS1 VD1 VSS VSS sky130_fd_pr__nfet_01v8 L=1 W=250 nf=10 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
-+ * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM5 VS1 VD1 VCC VCC sky130_fd_pr__pfet_01v8 L=0.25 W=200 nf=8 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
+XM1 VD1 VG1 VS1 VSS sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2)
 + * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 .ends
 

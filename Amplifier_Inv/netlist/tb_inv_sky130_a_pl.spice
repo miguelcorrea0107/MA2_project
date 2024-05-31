@@ -1,0 +1,57 @@
+** sch_path: /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/xschem/pl/tb_inv_sky130_a_pl.sch
+**.subckt tb_inv_sky130_a_pl
+VN VSS GND 0
+VP VCC GND dc 1.125
+.save i(vp)
+Vin in GND 0.48731 ac 1e-3 sin(0.48731 0.001 5000 0 0 0)
+.save i(vin)
+Rl out GND 1e60 m=1
+VG2 net1 GND dc 1.085
+VG1 net2 GND dc 0.725
+x1 net2 VCC net1 out in VSS inv_sky130_a_v4
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+.lib /usr/local/share/pdk/sky130A/libs.tech/combined/sky130.lib.spice tt
+
+
+
+.include /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/netlist/inv_sky130_a_v4_pl.spice
+.control
+
+  noise v(out) Vin dec 1000 300 10k
+  save all
+  setplot noise1
+  write tb_inv_sky130_a_noise_spectrum_pl.raw
+
+  noise v(out) Vin dec 1000 300 10k 10
+  save all
+  write tb_inv_sky130_a_noise_pl.raw
+
+  dc Vin 0 1.125 0.00001
+  save all v(out)
+  write tb_inv_sky130_a_DC_pl.raw v(out)
+
+  tran 0.1u 4m
+  save all
+  let pw_in = i(Vin)*v(in)
+  let pw_vcc = i(Vp)*1.125
+  let pw_vg1 = i(Vg1)*0.725
+  let pw_vg2 = i(Vg2)*1.085
+  let pw_total = pw_in+pw_vcc
+  meas tran avg_pw_total AVG pw_total FROM=0 TO=2m
+  meas tran avg_pw_in AVG pw_in FROM=0 TO=2m
+  meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
+  write tb_inv_sky130_a_tran_pl.raw v(in) v(out) avg_pw_total
+
+  ac dec 1000 1 1e8
+  save all v(out) v(in)
+  let gain = db(v(out)/v(in))
+  let phase = phase(v(out)/v(in))
+  write tb_inv_sky130_a_AC_pl.raw gain
+.endc
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

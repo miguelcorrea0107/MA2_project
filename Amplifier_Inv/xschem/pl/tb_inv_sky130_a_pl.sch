@@ -72,39 +72,21 @@ footprint=1206
 device=resistor
 m=1}
 C {devices/title.sym} -260 140 0 0 {name=l7 author="Rafael Miguel Correa"}
-C {devices/code.sym} 390 -85 2 1 {name=control only_toplevel=false value=".control
-  
-  op
-  save all 
-  let gmn = @m.x1.xm4.msky130_fd_pr__nfet_01v8[gm]
-  let gmp = @m.x1.xm5'.msky130_fd_pr__pfet_01v8[gm]
-  let gdsn = @m.x1.xm4.msky130_fd_pr__nfet_01v8[gds]
-  let gdsp = @m.x1.xm5.msky130_fd_pr__pfet_01v8[gds]
-  let cgsn = @m.x1.xm4.msky130_fd_pr__nfet_01v8[cgs]
-  let cgsp = @m.x1.xm5.msky130_fd_pr__pfet_01v8[cgs]
-  let cgdn = @m.x1.xm4.msky130_fd_pr__nfet_01v8[cgd]
-  let cgdp = @m.x1.xm5.msky130_fd_pr__pfet_01v8[cgd]
-  write tb_inv_sky130_a_op_v4.raw gmn gmp gdsn gdsp cgsn cgsp cgdn cgdp
-
-  ac dec 1000 1 1e8
-  save all
-  let gain = db(v(out)/v(in))
-  let gain_vs1 = db(v(x1.vs1)/v(in))
-  let phase = phase(v(out)/v(in))
-  write tb_inv_sky130_a_AC_v4.raw gain gain_vs1
-
-  noise v(out) Vin dec 1000 300 10k 10
-  save all
-  write tb_inv_sky130_a_noise_v4.raw
+C {devices/code.sym} 370 -85 2 1 {name=control only_toplevel=false value=".include /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/netlist/inv_sky130_a_v4_pl.spice
+.control
 
   noise v(out) Vin dec 1000 300 10k
   save all
   setplot noise1
-  write tb_inv_sky130_a_noise_spectrum_v4.raw
+  write tb_inv_sky130_a_noise_spectrum_pl.raw
+
+  noise v(out) Vin dec 1000 300 10k 10
+  save all
+  write tb_inv_sky130_a_noise_pl.raw
 
   dc Vin 0 1.125 0.00001
-  save all v(out) v(x1.vs1) v(x1.vd1)
-  write tb_inv_sky130_a_DC_v4.raw v(out) v(x1.vs1) v(x1.vd1)
+  save all v(out)
+  write tb_inv_sky130_a_DC_pl.raw v(out)
 
   tran 0.1u 4m
   save all
@@ -116,10 +98,14 @@ C {devices/code.sym} 390 -85 2 1 {name=control only_toplevel=false value=".contr
   meas tran avg_pw_total AVG pw_total FROM=0 TO=2m
   meas tran avg_pw_in AVG pw_in FROM=0 TO=2m
   meas tran avg_pw_vcc AVG pw_vcc FROM=0 TO=2m
-  write tb_inv_sky130_a_tran_v4.raw v(in) v(out) avg_pw_total
+  write tb_inv_sky130_a_tran_pl.raw v(in) v(out) avg_pw_total
 
-.endc
-"
+  ac dec 1000 1 1e8
+  save all v(out) v(in)
+  let gain = db(v(out)/v(in))
+  let phase = phase(v(out)/v(in))
+  write tb_inv_sky130_a_AC_pl.raw gain
+.endc"
 savecurrent = true
 }
 C {devices/vsource.sym} -180 -50 0 0 {name=VG2 value="dc 1.085" savecurrent=false}
@@ -130,4 +116,4 @@ C {devices/lab_pin.sym} -360 -110 2 0 {name=p1 sig_type=std_logic lab=VCC}
 C {devices/lab_pin.sym} -270 -110 0 1 {name=p2 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} 170 -190 2 0 {name=p3 sig_type=std_logic lab=VCC}
 C {devices/lab_pin.sym} 170 -90 2 0 {name=p4 sig_type=std_logic lab=VSS}
-C {v4/inv_sky130_a_v4.sym} 170 -140 0 0 {name=x1}
+C {pl/inv_sky130_a_v4.sym} 170 -140 0 0 {name=x1}
