@@ -31,7 +31,7 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 %nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
 %liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
 %toctotoc, % Uncomment to add the main table of contents to the table of contents
-%parskip, % Uncomment to add space between paragraphs
+parskip, % Uncomment to add space between paragraphs
 %nohyperref, % Uncomment to not load the hyperref package
 headsepline, % Uncomment to get a line under the header
 %chapterinoneline, % Uncomment to place the chapter title next to the number on one line
@@ -42,13 +42,20 @@ consistentlayout, % Uncomment to change the layout of the declaration, abstract 
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 
 \usepackage{mathpazo} % Use the Palatino font by default
-
-\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage{csvsimple}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{lscape}
+\usepackage{adjustbox}
+\usepackage{pdflscape}
+\usepackage[backend=bibtex,style=numeric,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 
 \addbibresource{example.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
-
 %----------------------------------------------------------------------------------------
 %	MARGIN SETTINGS
 %----------------------------------------------------------------------------------------
@@ -103,7 +110,7 @@ consistentlayout, % Uncomment to change the layout of the declaration, abstract 
 
 \vspace*{.06\textheight}
 {\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
-\textsc{\Large Master Project Report}\\[0.5cm] % Thesis type
+\textsc{\Large Semester Project Report}\\[0.5cm] % Thesis type
 
 \HRule \\[0.4cm] % Horizontal line
 {\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
@@ -131,7 +138,7 @@ consistentlayout, % Uncomment to change the layout of the declaration, abstract 
 \vfill
 
 {\large \today}\\[4cm] % Date
-%\includegraphics{Logo} % University/department logo - uncomment to place it
+%\includegraphics[h!][width=0.2\textwidth]{Figures/ETHZ.png} % University/department logo - uncomment to place it
  
 \vfill
 \end{center}
@@ -179,7 +186,13 @@ consistentlayout, % Uncomment to change the layout of the declaration, abstract 
 
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-The Thesis Abstract is written here (and usually kept to just this page). The page is kept centered vertically so can expand into the blank space above the title too\ldots
+This semester project, titled "Microelectronic Circuit Design for Neural Interfaces in 0.18um CMOS Technology Using an Open Source VLSI Ecosystem," focuses on advancing the capabilities of the BSSE group in the domain of IC design using open-source tools. The project explores the feasibility of designing a CMOS inverter-based amplifier for neural interfaces, leveraging accessible and collaborative resources to enhance the group's technical prowess and innovation capacity.
+
+The primary objectives include developing a CMOS inverter-based amplifier that meets specific design specifications, demonstrating the capabilities of various open-source tools throughout the IC design workflow, and creating a comprehensive guide for future projects within the BSSE group. The design workflow utilizes tools such as Xschem for schematic capture, Ngspice for circuit simulation, Magic for layout design, and Netgen for layout versus schematic (LVS) checks, all integrated with the SkyWater SKY130 PDK.
+
+The designed amplifier aims to enhance the signal-to-noise ratio (SNR) for extracellular recordings of neural networks, which is crucial for high-fidelity neural recordings. This project underscores the potential of open-source tools to reduce development costs, foster collaboration, and accelerate advancements in microelectronics within the BSSE group.
+
+By the conclusion of this project, a robust CMOS inverter-based amplifier design was successfully simulated and verified, ready for fabrication. The extensive documentation provided serves as a valuable reference for future open-source IC design projects within the BSSE group, significantly contributing to the group's knowledge base and technical capabilities.
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
@@ -188,13 +201,18 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 
 \begin{acknowledgements}
 \addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
-The acknowledgments and the people to thank go here, don't forget to include your project advisor\ldots
+I would like to extend my gratitude to Prof. Dr. Andreas Hierlemann for enabling this project.
+
+My deepest thanks go to Dr. Fernando Cardes, who was instrumental throughout the entire project. His extensive support, guidance, and responsiveness were crucial to my work. Working with him has been an exceptionally experience, and I am thankful for his dedication.
+
+Additionally, I appreciate Prof. Dr. Hanspeter Schmid for his help with the circuit analysis using the Driving Point Signal Flow Graph (DPSFG) method, which was vital for determining the transfer function.
 \end{acknowledgements}
 
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
 %----------------------------------------------------------------------------------------
 
+\setcounter{tocdepth}{1}
 \tableofcontents % Prints the main table of contents
 
 \listoffigures % Prints the list of figures
@@ -205,11 +223,20 @@ The acknowledgments and the people to thank go here, don't forget to include you
 %	ABBREVIATIONS
 %----------------------------------------------------------------------------------------
 
+
 \begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
-
-\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere\\
-\textbf{WSF} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or\\
-
+	\textbf{AC} & \textbf{A}lternating \textbf{C}urrent \\
+	\textbf{APS} & \textbf{A}ctive \textbf{P}ixel \textbf{S}ensor \\
+	\textbf{BSSE} & \textbf{B}io\textbf{s}ystems \textbf{S}cience and \textbf{E}ngineering \\
+	\textbf{CMOS} & \textbf{C}omplementary \textbf{M}etal-\textbf{O}xide-\textbf{S}emiconductor \\
+	\textbf{DC} & \textbf{D}irect \textbf{C}urrent \\
+	\textbf{DRC} & \textbf{D}esign \textbf{R}ule \textbf{C}heck \\
+    \textbf{DPSFG} & \textbf{D}riving \textbf{P}oint \textbf{S}ignal \textbf{F}low \textbf{G}raph \\
+	\textbf{IC} & \textbf{I}ntegrated \textbf{C}ircuit \\
+	\textbf{LVS} & \textbf{L}ayout \textbf{V}ersus \textbf{S}chematic \\
+	\textbf{PDK} & \textbf{P}rocess \textbf{D}esign \textbf{K}it \\
+	\textbf{SNR} & \textbf{S}ignal-to-\textbf{N}oise \textbf{R}atio \\
+	\textbf{VLSI} & \textbf{V}ery \textbf{L}arge \textbf{S}cale \textbf{I}ntegration \\	
 \end{abbreviations}
 
 %----------------------------------------------------------------------------------------
@@ -260,12 +287,12 @@ The acknowledgments and the people to thank go here, don't forget to include you
 
 \include{Chapters/Introduction}
 \include{Chapters/Workflow} 
-%\include{Chapters/Chapter3}
-%\include{Chapters/Chapter4} 
-%\include{Chapters/Chapter5} 
+%\include{Chapters/DDP}
+\include{Chapters/Amp} 
+\include{Chapters/Conclusion} 
 
 %----------------------------------------------------------------------------------------
-%	THESIS CONTENT - APPENDICES
+%	THESIS CONTENT - sNDICES
 %----------------------------------------------------------------------------------------
 
 \appendix % Cue to tell LaTeX that the following "chapters" are Appendices
@@ -274,7 +301,7 @@ The acknowledgments and the people to thank go here, don't forget to include you
 % Uncomment the lines as you write the Appendices
 
 \include{Appendices/AppendixA}
-%\include{Appendices/AppendixB}
+\include{Appendices/AppendixB}
 %\include{Appendices/AppendixC}
 
 %----------------------------------------------------------------------------------------

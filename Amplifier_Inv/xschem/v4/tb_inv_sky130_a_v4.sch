@@ -52,12 +52,12 @@ C {devices/gnd.sym} -270 30 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} -360 30 0 0 {name=l3 lab=GND}
 C {devices/lab_pin.sym} -10 -110 0 0 {name=in sig_type=std_logic lab=in
 }
-C {devices/code.sym} 375 -10 0 0 {name=TT_MODELS
+C {devices/code.sym} 385 -10 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
 ** opencircuitdesign pdks install
-.lib $::SKYWATER_MODELS/sky130.lib.spice tt
+.lib $::SKYWATER_MODELS/sky130.lib.spice ss
 
 "
 spice_ignore=false}

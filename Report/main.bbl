@@ -16,138 +16,254 @@
   {}
 \endgroup
 
-\datalist[entry]{nyt/global//global/global}
-  \entry{Reference3}{article}{}
-    \name{author}{4}{}{%
-      {{hash=AAS}{%
-         family={Arnold},
-         familyi={A\bibinitperiod},
-         given={A.\bibnamedelima S.},
-         giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+\datalist[entry]{nty/global//global/global}
+  \entry{ethz_bsse_wiki}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=oBSEZD}{%
+         prefix={of},
+         prefixi={o\bibinitperiod},
+         family={Biosystems\bibnamedelima Science},
+         familyi={B\bibinitperiod\bibinitdelim S\bibinitperiod},
+         given={ETH Zurich\bibnamedelima Department},
+         giveni={E\bibinitperiod\bibinitdelim Z\bibinitperiod\bibinitdelim D\bibinitperiod},
       }}%
-      {{hash=WJS}{%
-         family={Wilson},
-         familyi={W\bibinitperiod},
-         given={J.\bibnamedelima S.},
-         giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-      {{hash=BMG}{%
-         family={Boshier},
-         familyi={B\bibinitperiod},
-         given={M.\bibnamedelima G.},
-         giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod},
-      }}%
-      {{hash=SJ}{%
-         family={Smith},
-         familyi={S\bibinitperiod},
-         given={J.},
-         giveni={J\bibinitperiod},
+      {{hash=E}{%
+         family={Engineering},
+         familyi={E\bibinitperiod},
       }}%
     }
-    \strng{namehash}{AAS+1}
-    \strng{fullhash}{AASWJSBMGSJ1}
+    \strng{namehash}{BSEZDoE1}
+    \strng{fullhash}{BSEZDoE1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{labelyear}{1998}
-    \field{labeldatesource}{}
-    \field{sortinit}{A}
-    \field{sortinithash}{A}
-    \field{abstract}{%
-    Operating a laser diode in an extended cavity which provides frequency-selective feedback is a very effective method of reducing the laser's linewidth and improving its tunability. We have developed an extremely simple laser of this type, built from inexpensive commercial components with only a few minor modifications. A 780~nm laser built to this design has an output power of 80~mW, a linewidth of 350~kHz, and it has been continuously locked to a Doppler-free rubidium transition for several days.%
-    }
-    \field{number}{3}
-    \field{pages}{1236\bibrangedash 1239}
-    \field{title}{A Simple Extended-Cavity Diode Laser}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{howpublished}{ETH Zurich BSSE Wiki}
+    \field{note}{Accessed: 2024-06-05}
+    \field{title}{Title of the Wiki Page}
     \verb{url}
-    \verb http://link.aip.org/link/?RSI/69/1236/1
+    \verb https://wiki-bsse.ethz.ch/pages/viewpage.action?pageId=478347399
     \endverb
-    \field{volume}{69}
-    \field{journaltitle}{Review of Scientific Instruments}
-    \field{month}{03}
-    \field{year}{1998}
+    \field{year}{2024}
   \endentry
 
-  \entry{Reference1}{article}{}
-    \name{author}{3}{}{%
-      {{hash=HCJ}{%
-         family={Hawthorn},
-         familyi={H\bibinitperiod},
-         given={C.\bibnamedelima J.},
-         giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
-      }}%
-      {{hash=WKP}{%
-         family={Weber},
-         familyi={W\bibinitperiod},
-         given={K.\bibnamedelima P.},
-         giveni={K\bibinitperiod\bibinitdelim P\bibinitperiod},
-      }}%
-      {{hash=SRE}{%
-         family={Scholten},
-         familyi={S\bibinitperiod},
-         given={R.\bibnamedelima E.},
-         giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod},
+  \entry{xschem}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=BS}{%
+         family={Bodini},
+         familyi={B\bibinitperiod},
+         given={Stefano},
+         giveni={S\bibinitperiod},
       }}%
     }
-    \strng{namehash}{HCJWKPSRE1}
-    \strng{fullhash}{HCJWKPSRE1}
+    \strng{namehash}{BS1}
+    \strng{fullhash}{BS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{labelyear}{2001}
-    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{note}{Accessed: 2024-06-05}
+    \field{title}{Xschem: Electronic Schematic Editor for Complex Circuit Design}
+    \verb{url}
+    \verb https://xschem.sourceforge.io/
+    \endverb
+    \field{year}{2024}
+  \endentry
+
+  \entry{magic}{misc}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=ET}{%
+         family={Edwards},
+         familyi={E\bibinitperiod},
+         given={Timothy},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ET+1}
+    \strng{fullhash}{ET+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{howpublished}{Open source VLSI layout tool}
+    \field{note}{Accessed: 2024-06-05}
+    \field{title}{Magic VLSI Layout Tool}
+    \verb{url}
+    \verb http://opencircuitdesign.com/magic/
+    \endverb
+    \field{year}{2024}
+  \endentry
+
+  \entry{efabless_com}{misc}{}
+    \list{language}{1}{%
+      {en}%
+    }
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{abstract}{%
+    Chip Creation Made Simple%
+    }
+    \field{title}{efabless.com}
+    \verb{url}
+    \verb https://efabless.com
+    \endverb
+  \endentry
+
+  \entry{Department_of_Biosystems_Science_and_Engineering_2024}{misc}{}
+    \list{language}{1}{%
+      {en}%
+    }
+    \field{labeltitlesource}{title}
     \field{sortinit}{H}
     \field{sortinithash}{H}
-    \field{abstract}{%
-    We have developed an enhanced Littrow configuration extended cavity diode laser (ECDL) that can be tuned without changing the direction of the output beam. The output of a conventional Littrow ECDL is reflected from a plane mirror fixed parallel to the tuning diffraction grating. Using a free-space Michelson wavemeter to measure the laser wavelength, we can tune the laser over a range greater than 10 nm without any alteration of alignment.%
-    }
-    \field{number}{12}
-    \field{pages}{4477\bibrangedash 4479}
-    \field{title}{Littrow Configuration Tunable External Cavity Diode Laser with Fixed Direction Output Beam}
+    \field{title}{Homepage of the D-BSSE, the Department of Biosystems Science and Engineering}
     \verb{url}
-    \verb http://link.aip.org/link/?RSI/72/4477/1
+    \verb https://bsse.ethz.ch/
     \endverb
-    \field{volume}{72}
-    \field{journaltitle}{Review of Scientific Instruments}
-    \field{month}{12}
-    \field{year}{2001}
+    \field{month}{05}
+    \field{year}{2024}
   \endentry
 
-  \entry{Reference2}{article}{}
-    \name{author}{2}{}{%
-      {{hash=WCE}{%
-         family={Wieman},
-         familyi={W\bibinitperiod},
-         given={Carl\bibnamedelima E.},
-         giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
-      }}%
-      {{hash=HL}{%
-         family={Hollberg},
-         familyi={H\bibinitperiod},
-         given={Leo},
-         giveni={L\bibinitperiod},
+  \entry{miguelcorrea0107_2024}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=m}{%
+         family={miguelcorrea0107},
+         familyi={m\bibinitperiod},
       }}%
     }
-    \keyw{Diode Laser}
-    \strng{namehash}{WCEHL1}
-    \strng{fullhash}{WCEHL1}
+    \strng{namehash}{m1}
+    \strng{fullhash}{m1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{labelyear}{1991}
-    \field{labeldatesource}{}
-    \field{sortinit}{W}
-    \field{sortinithash}{W}
-    \field{abstract}{%
-    We present a review of the use of diode lasers in atomic physics with an extensive list of references. We discuss the relevant characteristics of diode lasers and explain how to purchase and use them. We also review the various techniques that have been used to control and narrow the spectral outputs of diode lasers. Finally we present a number of examples illustrating the use of diode lasers in atomic physics experiments. Review of Scientific Instruments is copyrighted by The American Institute of Physics.%
-    }
-    \field{number}{1}
-    \field{pages}{1\bibrangedash 20}
-    \field{title}{Using Diode Lasers for Atomic Physics}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{GitHub}
     \verb{url}
-    \verb http://link.aip.org/link/?RSI/62/1/1
+    \verb https://github.com/miguelcorrea0107
     \endverb
-    \field{volume}{62}
-    \field{journaltitle}{Review of Scientific Instruments}
-    \field{month}{01}
-    \field{year}{1991}
+    \field{type}{Jupyter Notebook}
+    \field{month}{05}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Schmid_Huber_2018}{article}{}
+    \name{author}{2}{}{%
+      {{hash=SH}{%
+         family={Schmid},
+         familyi={S\bibinitperiod},
+         given={Hanspeter},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=HA}{%
+         family={Huber},
+         familyi={H\bibinitperiod},
+         given={Alex},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \strng{namehash}{SHHA1}
+    \strng{fullhash}{SHHA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{abstract}{%
+    This paper extends the driving-point signal-flow graphs to switched-capacitor (SC) circuits by introducing a new theoretical element: an auxiliary voltage source that transfers no charge. In contrast to existing SFG methods, our method has no restrictions as to what types of SC circuits can be analysed, it requires no equivalent circuits or tables, and it works with two-phase as well as multi-phase SC circuits of any complexity. Compared to charge-equation matrix methods, it requires more effort, but is better suited for hand analysis because it makes causal relationships visible. Three illustrative examples are given to show the efficiency of the method and present a few application hints: a voltage doubler, the standard SC integrator, and a four-phase circuit simulating an inductor.%
+    }
+    \verb{doi}
+    \verb 10.1007/s10470-018-1131-7
+    \endverb
+    \field{issn}{0925-1030, 1573-1979}
+    \field{number}{3}
+    \field{pages}{495\bibrangedash 507}
+    \field{title}{Analysis of Switched-Capacitor Circuits Using Driving-Point Signal-Flow Graphs}
+    \field{volume}{96}
+    \field{journaltitle}{Analog Integrated Circuits and Signal Processing}
+    \field{month}{09}
+    \field{year}{2018}
+  \endentry
+
+  \entry{SkyWater_Technology_US_Semiconductor_Manufacturer}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{SkyWater Technology | U.S. Semiconductor Manufacturer}
+    \verb{url}
+    \verb https://www.skywatertechnology.com/
+    \endverb
+  \endentry
+
+  \entry{ngspice}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=TTND}{%
+         family={Team},
+         familyi={T\bibinitperiod},
+         given={The Ngspice\bibnamedelima Development},
+         giveni={T\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TTND1}
+    \strng{fullhash}{TTND1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{howpublished}{Open source mixed-level/mixed-signal circuit simulator}
+    \field{note}{Accessed: 2024-06-05}
+    \field{title}{Ngspice: Open Source Mixed-Level/Mixed-Signal Circuit Simulator}
+    \verb{url}
+    \verb http://ngspice.sourceforge.net/
+    \endverb
+    \field{year}{2024}
+  \endentry
+
+  \entry{Yuan_Hierlemann_Frey_2021}{article}{}
+    \name{author}{3}{}{%
+      {{hash=YX}{%
+         family={Yuan},
+         familyi={Y\bibinitperiod},
+         given={Xinyue},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=HA}{%
+         family={Hierlemann},
+         familyi={H\bibinitperiod},
+         given={Andreas},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=FU}{%
+         family={Frey},
+         familyi={F\bibinitperiod},
+         given={Urs},
+         giveni={U\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{YXHAFU1}
+    \strng{fullhash}{YXHAFU1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Y}
+    \field{sortinithash}{Y}
+    \field{abstract}{%
+    Electrophysiological research on neural networks and their activity focuses on the recording and analysis of large data sets that include information of thousands of neurons. CMOS microelectrode arrays (MEAs) feature thousands of electrodes at a spatial resolution on the scale of single cells and are, therefore, ideal tools to support neural-network research. Moreover, they offer high spatio-temporal resolution and signal-to-noise ratio (SNR) to capture all features and subcellular-resolution details of neuronal signaling. Here, we present a dual-mode (DM) MEA, which enables simultaneous: 1) full-frame readout from all electrodes and 2) high-SNR readout from an arbitrarily selectable subset of electrodes. The DM-MEA includes 19,584 electrodes, 19,584 full-frame recording channels with noise levels of 10.4 μVrms in the action potential (AP) frequency band (300 Hz-5 kHz), 246 low-noise recording channels with noise levels of 3.0 μVrms in the AP band and eight stimulation units. The capacity to simultaneously perform full-frame and high-SNR recordings endows the presented DM-MEA with great flexibility for various applications in neuroscience and pharmacology.%
+    }
+    \verb{doi}
+    \verb 10.1109/JSSC.2021.3066043
+    \endverb
+    \field{issn}{1558-173X}
+    \field{number}{8}
+    \field{pages}{2466\bibrangedash 2475}
+    \field{title}{Extracellular Recording of Entire Neural Networks Using a Dual-Mode Microelectrode Array With 19 584 Electrodes and High SNR}
+    \field{volume}{56}
+    \field{journaltitle}{IEEE Journal of Solid-State Circuits}
+    \field{month}{08}
+    \field{year}{2021}
   \endentry
 \enddatalist
 \endinput
