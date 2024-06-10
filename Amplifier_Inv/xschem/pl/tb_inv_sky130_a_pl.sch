@@ -75,14 +75,14 @@ C {devices/title.sym} -260 140 0 0 {name=l7 author="Rafael Miguel Correa"}
 C {devices/code.sym} 370 -85 2 1 {name=control only_toplevel=false value=".include /Users/miguelcorrea/Desktop/MA2_project/Amplifier_Inv/netlist/inv_sky130_a_v4_pl.spice
 .control
 
+  noise v(out) Vin dec 1000 300 10k 10
+  save all
+  write tb_inv_sky130_a_noise_pl.raw
+
   noise v(out) Vin dec 1000 300 10k
   save all
   setplot noise1
   write tb_inv_sky130_a_noise_spectrum_pl.raw
-
-  noise v(out) Vin dec 1000 300 10k 10
-  save all
-  write tb_inv_sky130_a_noise_pl.raw
 
   dc Vin 0 1.125 0.00001
   save all v(out)

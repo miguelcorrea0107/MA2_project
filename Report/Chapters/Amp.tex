@@ -9,14 +9,14 @@ All files related to the amplifier design can be found in \textcite{miguelcorrea
 
 \section{Design Specifications}
 
-The amplifier design targets the following specifications established for neural interface applications:
+The amplifier design targets the following specifications established for the first stage of neural interface applications. This amplifier is intended to serve as a pixel amplifier in an Active Pixel Sensor (APS) readout circuit on a microelectrode array. As the first stage, its role is to provide initial amplification of the signal directly at the pixel level. Further amplification typically occurs in subsequent stages.
 
 \begin{itemize}
 \item \textbf{Power Supply Voltage:} 0.5V to 1.5V (Flexibility for various neural recording setups)
-\item \textbf{Input-Referred Noise:} Around 3 $\mu$V between 300 Hz to 10 kHz (Minimizes noise contribution to the neural signal)
+\item \textbf{Input-Referred Noise:} Around 3 µV between 300 Hz to 10 kHz (Minimizes noise contribution to the neural signal)
 \item \textbf{Gain:} Around 20 dB (Amplifies weak neural signals)
 \item \textbf{Frequency Response:} Bandpass with flat gain between 10 Hz to 5 kHz (Focuses on the relevant frequency range of neural activity)
-\item \textbf{Power Consumption:} Less than 10 $\mu$W (Low power consumption for extended device operation)
+\item \textbf{Power Consumption:} Less than 10 µW (Low power consumption for extended device operation)
 \item \textbf{Device Size:} Minimized for efficient chip area utilization
 \end{itemize}
 
@@ -61,10 +61,10 @@ Specifically, adjusting the values of $V_{g1}$ and $V_{g2}$ will ensure the ampl
 The simulation results are as follows:
 
 \begin{itemize}
-\item \textbf{Gain:} 20.89885 dB
-\item \textbf{Bandwidth:} 8.87156 Hz to 4.375 kHz
-\item \textbf{Noise:} 5.751697 $\mu$V between 300 Hz to 10 kHz
-\item \textbf{Power Consumption:} 3.115 $\mu$W
+\item \textbf{Gain:} 20.9 dB
+\item \textbf{Bandwidth:} 8.9 Hz to 4.4 kHz
+\item \textbf{Noise:} 5.8 µV between 300 Hz to 10 kHz
+\item \textbf{Power Consumption:} 3.1 µW
 \end{itemize}
 
 \begin{figure}[ht!]
@@ -76,14 +76,14 @@ The simulation results are as follows:
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=\textwidth]{Figures/frequency_response_v4.png}
+\includegraphics[width=\textwidth]{Figures/test.pdf}
 \caption{Frequency response of the CMOS inverter-based amplifier design.}
 \label{fig:frequency_response_v4}
 \end{figure}
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=\textwidth]{Figures/v4_noise_sim_results.png}
+\includegraphics[width=\textwidth]{Figures/inoise_v4.pdf}
 \caption{Noise analysis of the CMOS inverter-based amplifier design.}
 \label{fig:noise_v4}
 \end{figure}
@@ -94,9 +94,9 @@ Magic was used to translate the schematic design into a manufacturable layout.
 Figure \ref{fig:layout_v4} shows the layout design of the CMOS inverter-based amplifier. This layout results in:
 
 \begin{itemize}
-\item \textbf{Width:} 27.4 $\mu$m
-\item \textbf{Height:} 67.95 $\mu$m
-\item \textbf{Total Area:} 1861.83 $\mu$m$^2$
+\item \textbf{Width:} 27.4 µm
+\item \textbf{Height:} 67.95 µm
+\item \textbf{Total Area:} 1861.83 µm$^2$
 \end{itemize}
 
 The layout is designed to minimize unused space and ensure efficient use of the available area.
@@ -128,11 +128,11 @@ and figure \ref{fig:post_layout_noise} shows the noise analysis of the CMOS inve
     \hline
     \textbf{Specification} & \textbf{Desired Value} & \textbf{Final Value} \\ \hline
     Power Supply Voltage & 0.5V to 1.5V & 1.125V \\ \hline
-    Input-Referred Noise & Around 3 $\mu$V between 300 Hz to 10 kHz & 5.997 $\mu$V between 300 Hz to 10 kHz \\ \hline
-    Gain & Around 20 dB & 19.056 dB \\hline
-    Frequency Response & Bandpass, 10 Hz to 5 kHz & Bandpass, 6.887 Hz to 4.688 kHz \\ \hline
-    Power Consumption & Less than 10 $\mu$W & 3.163 $\mu$W \\ \hline
-    Device Size & - & 1861.83 $\mu$m$^2$ \\ \hline
+    Input-Referred Noise & Around 3 µV between 300 Hz to 10 kHz & 6 µV between 300 Hz to 10 kHz \\ \hline
+    Gain & Around 20 dB & 19.1 dB \\hline
+    Frequency Response & Bandpass, 10 Hz to 5 kHz & Bandpass, 6.9 Hz to 4.7 kHz \\ \hline
+    Power Consumption & Less than 10 µW & 3.2 µW \\ \hline
+    Device Size & - & 1861.83 µm$^2$ \\ \hline
     \end{tabular}
     }
     \caption{Specification Comparison}
@@ -141,14 +141,14 @@ and figure \ref{fig:post_layout_noise} shows the noise analysis of the CMOS inve
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=\textwidth]{Figures/post_layout_frequency_response.png}
+    \includegraphics[width=\textwidth]{Figures/post_layout_frequency_response.pdf}
     \caption{Frequency response of the CMOS inverter-based amplifier design after layout.}
     \label{fig:post_layout_frequency_response}
 \end{figure}
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=\textwidth]{Figures/post_layout_frequency_response.png}
+    \includegraphics[width=\textwidth]{Figures/inoise_pl.pdf}
     \caption{Noise analysis of the CMOS inverter-based amplifier design after layout.}
     \label{fig:post_layout_noise}
 \end{figure}

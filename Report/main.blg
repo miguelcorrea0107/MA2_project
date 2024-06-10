@@ -25,47 +25,49 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: main-blx.bib
 Database file #2: example.bib
+Warning--I didn't find a database entry for "ethz_BEL_wiki"
 Biblatex version: 3.19
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 You've used 11 entries,
             6399 wiz_defined-function locations,
-            1271 strings with 12798 characters,
-and the built_in function-call counts, 49611 in all, are:
-= -- 3322
-> -- 779
-< -- 258
-+ -- 1033
-- -- 310
-* -- 3583
-:= -- 4935
+            1273 strings with 12829 characters,
+and the built_in function-call counts, 47648 in all, are:
+= -- 3298
+> -- 718
+< -- 184
++ -- 1022
+- -- 280
+* -- 3224
+:= -- 4854
 add.period$ -- 0
 call.type$ -- 11
-change.case$ -- 87
+change.case$ -- 65
 chr.to.int$ -- 54
 cite$ -- 20
-duplicate$ -- 5055
-empty$ -- 4986
-format.name$ -- 411
-if$ -- 10404
+duplicate$ -- 4839
+empty$ -- 4819
+format.name$ -- 386
+if$ -- 9955
 int.to.chr$ -- 0
 int.to.str$ -- 20
 missing$ -- 0
-newline$ -- 269
-num.names$ -- 302
+newline$ -- 249
+num.names$ -- 281
 pop$ -- 3383
 preamble$ -- 1
-purify$ -- 110
+purify$ -- 98
 quote$ -- 0
-skip$ -- 1451
+skip$ -- 1356
 stack$ -- 0
-substring$ -- 6080
-swap$ -- 1258
-text.length$ -- 268
-text.prefix$ -- 10
+substring$ -- 6065
+swap$ -- 1088
+text.length$ -- 204
+text.prefix$ -- 0
 top$ -- 1
 type$ -- 358
 warning$ -- 0
-while$ -- 593
+while$ -- 576
 width$ -- 0
-write$ -- 259
+write$ -- 239
+(There was 1 warning)

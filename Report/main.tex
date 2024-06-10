@@ -50,8 +50,9 @@ consistentlayout, % Uncomment to change the layout of the declaration, abstract 
 \usepackage{array}
 \usepackage{lscape}
 \usepackage{adjustbox}
+\usepackage{siunitx}
 \usepackage{pdflscape}
-\usepackage[backend=bibtex,style=numeric,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage[backend=bibtex,style=numeric,sorting=none,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 
 \addbibresource{example.bib} % The filename of the bibliography
 
@@ -74,7 +75,7 @@ consistentlayout, % Uncomment to change the layout of the declaration, abstract 
 %	THESIS INFORMATION
 %----------------------------------------------------------------------------------------
 
-\thesistitle{Microelectronic circuit design for neural interfaces in 0.18um CMOS technology using an open source VLSI ecosystem} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\thesistitle{Microelectronic circuit design for neural interfaces in 0.13µm CMOS technology using an open source VLSI ecosystem} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
 \supervisor{Prof. Andreas \textsc{Hierlemann}
 			\\ Dr. Fernando \textsc{Cardes}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
 \examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
@@ -86,7 +87,7 @@ consistentlayout, % Uncomment to change the layout of the declaration, abstract 
 \keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
 \university{\href{https://ethz.ch/en.html}{ETHZ}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
 \department{\href{http://department.university.com}{D-ITET}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
-\group{\href{http://researchgroup.university.com}{BSSE}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\group{\href{http://researchgroup.university.com}{BEL}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
 \faculty{\href{https://ee.ethz.ch}{D-ITET}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
 
 \AtBeginDocument{
@@ -96,6 +97,13 @@ consistentlayout, % Uncomment to change the layout of the declaration, abstract 
 }
 
 \begin{document}
+
+\hypersetup{
+    colorlinks=true,  % Enable colored links
+    linkcolor=black,  % Color for internal links (e.g., sections, pages)
+    citecolor=red,  % Color for citations
+    urlcolor=red   % Color for URLs
+}
 
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 
@@ -186,13 +194,13 @@ consistentlayout, % Uncomment to change the layout of the declaration, abstract 
 
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-This semester project, titled "Microelectronic Circuit Design for Neural Interfaces in 0.18um CMOS Technology Using an Open Source VLSI Ecosystem," focuses on advancing the capabilities of the BSSE group in the domain of IC design using open-source tools. The project explores the feasibility of designing a CMOS inverter-based amplifier for neural interfaces, leveraging accessible and collaborative resources to enhance the group's technical prowess and innovation capacity.
+This semester project, titled "Microelectronic Circuit Design for Neural Interfaces in 0.13µm CMOS Technology Using an Open Source VLSI Ecosystem," explores the capabilities of IC design using open-source tools by developing a CMOS inverter-based amplifier for neural interfaces.
 
-The primary objectives include developing a CMOS inverter-based amplifier that meets specific design specifications, demonstrating the capabilities of various open-source tools throughout the IC design workflow, and creating a comprehensive guide for future projects within the BSSE group. The design workflow utilizes tools such as Xschem for schematic capture, Ngspice for circuit simulation, Magic for layout design, and Netgen for layout versus schematic (LVS) checks, all integrated with the SkyWater SKY130 PDK.
+The primary objectives are to develop a CMOS inverter-based amplifier that meets specific design specifications, demonstrate the capabilities of various open-source tools throughout the IC design workflow, and create a comprehensive guide for future projects within the BEL group. The design workflow utilizes tools such as Xschem for schematic capture, Ngspice for circuit simulation, Magic for layout design, and Netgen for layout versus schematic (LVS) checks, all integrated with the SkyWater SKY130 PDK.
 
-The designed amplifier aims to enhance the signal-to-noise ratio (SNR) for extracellular recordings of neural networks, which is crucial for high-fidelity neural recordings. This project underscores the potential of open-source tools to reduce development costs, foster collaboration, and accelerate advancements in microelectronics within the BSSE group.
+The designed amplifier aims to provide effective amplification with good signal-to-noise ratio (SNR), low noise, and low power consumption, which is crucial for high-fidelity neural recordings. This project highlights the potential of open-source tools to reduce development costs and foster collaboration within the BEL group.
 
-By the conclusion of this project, a robust CMOS inverter-based amplifier design was successfully simulated and verified, ready for fabrication. The extensive documentation provided serves as a valuable reference for future open-source IC design projects within the BSSE group, significantly contributing to the group's knowledge base and technical capabilities.
+By the conclusion of this project, a robust CMOS inverter-based amplifier design was successfully simulated and verified, making it ready for fabrication. The extensive documentation provided serves as a valuable reference for future open-source IC design projects within the BEL group, significantly contributing to the group's knowledge base and technical capabilities.
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
@@ -227,7 +235,7 @@ Additionally, I appreciate Prof. Dr. Hanspeter Schmid for his help with the circ
 \begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
 	\textbf{AC} & \textbf{A}lternating \textbf{C}urrent \\
 	\textbf{APS} & \textbf{A}ctive \textbf{P}ixel \textbf{S}ensor \\
-	\textbf{BSSE} & \textbf{B}io\textbf{s}ystems \textbf{S}cience and \textbf{E}ngineering \\
+	\textbf{BEL} & \textbf{B}io\textbf{s}ystems \textbf{S}cience and \textbf{E}ngineering \\
 	\textbf{CMOS} & \textbf{C}omplementary \textbf{M}etal-\textbf{O}xide-\textbf{S}emiconductor \\
 	\textbf{DC} & \textbf{D}irect \textbf{C}urrent \\
 	\textbf{DRC} & \textbf{D}esign \textbf{R}ule \textbf{C}heck \\

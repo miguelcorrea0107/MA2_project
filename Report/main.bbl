@@ -16,35 +16,73 @@
   {}
 \endgroup
 
-\datalist[entry]{nty/global//global/global}
-  \entry{ethz_bsse_wiki}{misc}{}
-    \name{author}{2}{}{%
-      {{hash=oBSEZD}{%
-         prefix={of},
-         prefixi={o\bibinitperiod},
-         family={Biosystems\bibnamedelima Science},
-         familyi={B\bibinitperiod\bibinitdelim S\bibinitperiod},
-         given={ETH Zurich\bibnamedelima Department},
-         giveni={E\bibinitperiod\bibinitdelim Z\bibinitperiod\bibinitdelim D\bibinitperiod},
+\datalist[entry]{none/global//global/global}
+  \entry{Department_of_Biosystems_Science_and_Engineering_2024}{misc}{}
+    \list{language}{1}{%
+      {en}%
+    }
+    \field{labeltitlesource}{title}
+    \field{title}{Homepage of the BEL (Bio Engineering Laboratory) group}
+    \verb{url}
+    \verb https://bsse.ethz.ch/bel
+    \endverb
+    \field{month}{05}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Yuan_Hierlemann_Frey_2021}{article}{}
+    \name{author}{3}{}{%
+      {{hash=YX}{%
+         family={Yuan},
+         familyi={Y\bibinitperiod},
+         given={Xinyue},
+         giveni={X\bibinitperiod},
       }}%
-      {{hash=E}{%
-         family={Engineering},
-         familyi={E\bibinitperiod},
+      {{hash=HA}{%
+         family={Hierlemann},
+         familyi={H\bibinitperiod},
+         given={Andreas},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=FU}{%
+         family={Frey},
+         familyi={F\bibinitperiod},
+         given={Urs},
+         giveni={U\bibinitperiod},
       }}%
     }
-    \strng{namehash}{BSEZDoE1}
-    \strng{fullhash}{BSEZDoE1}
+    \strng{namehash}{YXHAFU1}
+    \strng{fullhash}{YXHAFU1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{B}
-    \field{sortinithash}{B}
-    \field{howpublished}{ETH Zurich BSSE Wiki}
-    \field{note}{Accessed: 2024-06-05}
-    \field{title}{Title of the Wiki Page}
-    \verb{url}
-    \verb https://wiki-bsse.ethz.ch/pages/viewpage.action?pageId=478347399
+    \field{abstract}{%
+    Electrophysiological research on neural networks and their activity focuses on the recording and analysis of large data sets that include information of thousands of neurons. CMOS microelectrode arrays (MEAs) feature thousands of electrodes at a spatial resolution on the scale of single cells and are, therefore, ideal tools to support neural-network research. Moreover, they offer high spatio-temporal resolution and signal-to-noise ratio (SNR) to capture all features and subcellular-resolution details of neuronal signaling. Here, we present a dual-mode (DM) MEA, which enables simultaneous: 1) full-frame readout from all electrodes and 2) high-SNR readout from an arbitrarily selectable subset of electrodes. The DM-MEA includes 19,584 electrodes, 19,584 full-frame recording channels with noise levels of 10.4 μVrms in the action potential (AP) frequency band (300 Hz-5 kHz), 246 low-noise recording channels with noise levels of 3.0 μVrms in the AP band and eight stimulation units. The capacity to simultaneously perform full-frame and high-SNR recordings endows the presented DM-MEA with great flexibility for various applications in neuroscience and pharmacology.%
+    }
+    \verb{doi}
+    \verb 10.1109/JSSC.2021.3066043
     \endverb
-    \field{year}{2024}
+    \field{issn}{1558-173X}
+    \field{number}{8}
+    \field{pages}{2466\bibrangedash 2475}
+    \field{title}{Extracellular Recording of Entire Neural Networks Using a Dual-Mode Microelectrode Array With 19 584 Electrodes and High SNR}
+    \field{volume}{56}
+    \field{journaltitle}{IEEE Journal of Solid-State Circuits}
+    \field{month}{08}
+    \field{year}{2021}
+  \endentry
+
+  \entry{efabless_com}{misc}{}
+    \list{language}{1}{%
+      {en}%
+    }
+    \field{labeltitlesource}{title}
+    \field{abstract}{%
+    Chip Creation Made Simple%
+    }
+    \field{title}{efabless.com}
+    \verb{url}
+    \verb https://efabless.com
+    \endverb
   \endentry
 
   \entry{xschem}{misc}{}
@@ -60,12 +98,32 @@
     \strng{fullhash}{BS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{B}
-    \field{sortinithash}{B}
     \field{note}{Accessed: 2024-06-05}
     \field{title}{Xschem: Electronic Schematic Editor for Complex Circuit Design}
     \verb{url}
     \verb https://xschem.sourceforge.io/
+    \endverb
+    \field{year}{2024}
+  \endentry
+
+  \entry{ngspice}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=TTND}{%
+         family={Team},
+         familyi={T\bibinitperiod},
+         given={The Ngspice\bibnamedelima Development},
+         giveni={T\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TTND1}
+    \strng{fullhash}{TTND1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{Open source mixed-level/mixed-signal circuit simulator}
+    \field{note}{Accessed: 2024-06-05}
+    \field{title}{Ngspice: Open Source Mixed-Level/Mixed-Signal Circuit Simulator}
+    \verb{url}
+    \verb http://ngspice.sourceforge.net/
     \endverb
     \field{year}{2024}
   \endentry
@@ -85,8 +143,6 @@
     \strng{fullhash}{ET+1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{E}
-    \field{sortinithash}{E}
     \field{howpublished}{Open source VLSI layout tool}
     \field{note}{Accessed: 2024-06-05}
     \field{title}{Magic VLSI Layout Tool}
@@ -96,34 +152,39 @@
     \field{year}{2024}
   \endentry
 
-  \entry{efabless_com}{misc}{}
-    \list{language}{1}{%
-      {en}%
-    }
+  \entry{SkyWater_Technology_US_Semiconductor_Manufacturer}{misc}{}
     \field{labeltitlesource}{title}
-    \field{sortinit}{E}
-    \field{sortinithash}{E}
-    \field{abstract}{%
-    Chip Creation Made Simple%
-    }
-    \field{title}{efabless.com}
+    \field{title}{SkyWater Technology | U.S. Semiconductor Manufacturer}
     \verb{url}
-    \verb https://efabless.com
+    \verb https://www.skywatertechnology.com/
     \endverb
   \endentry
 
-  \entry{Department_of_Biosystems_Science_and_Engineering_2024}{misc}{}
-    \list{language}{1}{%
-      {en}%
+  \entry{ethz_bsse_wiki}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=oBSEZD}{%
+         prefix={of},
+         prefixi={o\bibinitperiod},
+         family={Biosystems\bibnamedelima Science},
+         familyi={B\bibinitperiod\bibinitdelim S\bibinitperiod},
+         given={ETH Zurich\bibnamedelima Department},
+         giveni={E\bibinitperiod\bibinitdelim Z\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=E}{%
+         family={Engineering},
+         familyi={E\bibinitperiod},
+      }}%
     }
+    \strng{namehash}{BSEZDoE1}
+    \strng{fullhash}{BSEZDoE1}
+    \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{H}
-    \field{sortinithash}{H}
-    \field{title}{Homepage of the D-BSSE, the Department of Biosystems Science and Engineering}
+    \field{howpublished}{ETH Zurich BSSE Wiki}
+    \field{note}{Accessed: 2024-06-05}
+    \field{title}{OSICD - Open-Source Integrated Circuit Design}
     \verb{url}
-    \verb https://bsse.ethz.ch/
+    \verb https://wiki-bsse.ethz.ch/pages/viewpage.action?pageId=478347399
     \endverb
-    \field{month}{05}
     \field{year}{2024}
   \endentry
 
@@ -138,8 +199,6 @@
     \strng{fullhash}{m1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{M}
-    \field{sortinithash}{M}
     \field{title}{GitHub}
     \verb{url}
     \verb https://github.com/miguelcorrea0107
@@ -171,8 +230,6 @@
     \strng{fullhash}{SHHA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{S}
-    \field{sortinithash}{S}
     \field{abstract}{%
     This paper extends the driving-point signal-flow graphs to switched-capacitor (SC) circuits by introducing a new theoretical element: an auxiliary voltage source that transfers no charge. In contrast to existing SFG methods, our method has no restrictions as to what types of SC circuits can be analysed, it requires no equivalent circuits or tables, and it works with two-phase as well as multi-phase SC circuits of any complexity. Compared to charge-equation matrix methods, it requires more effort, but is better suited for hand analysis because it makes causal relationships visible. Three illustrative examples are given to show the efficiency of the method and present a few application hints: a voltage doubler, the standard SC integrator, and a four-phase circuit simulating an inductor.%
     }
@@ -187,83 +244,6 @@
     \field{journaltitle}{Analog Integrated Circuits and Signal Processing}
     \field{month}{09}
     \field{year}{2018}
-  \endentry
-
-  \entry{SkyWater_Technology_US_Semiconductor_Manufacturer}{misc}{}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{S}
-    \field{sortinithash}{S}
-    \field{title}{SkyWater Technology | U.S. Semiconductor Manufacturer}
-    \verb{url}
-    \verb https://www.skywatertechnology.com/
-    \endverb
-  \endentry
-
-  \entry{ngspice}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=TTND}{%
-         family={Team},
-         familyi={T\bibinitperiod},
-         given={The Ngspice\bibnamedelima Development},
-         giveni={T\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim D\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{TTND1}
-    \strng{fullhash}{TTND1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{T}
-    \field{sortinithash}{T}
-    \field{howpublished}{Open source mixed-level/mixed-signal circuit simulator}
-    \field{note}{Accessed: 2024-06-05}
-    \field{title}{Ngspice: Open Source Mixed-Level/Mixed-Signal Circuit Simulator}
-    \verb{url}
-    \verb http://ngspice.sourceforge.net/
-    \endverb
-    \field{year}{2024}
-  \endentry
-
-  \entry{Yuan_Hierlemann_Frey_2021}{article}{}
-    \name{author}{3}{}{%
-      {{hash=YX}{%
-         family={Yuan},
-         familyi={Y\bibinitperiod},
-         given={Xinyue},
-         giveni={X\bibinitperiod},
-      }}%
-      {{hash=HA}{%
-         family={Hierlemann},
-         familyi={H\bibinitperiod},
-         given={Andreas},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=FU}{%
-         family={Frey},
-         familyi={F\bibinitperiod},
-         given={Urs},
-         giveni={U\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{YXHAFU1}
-    \strng{fullhash}{YXHAFU1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{Y}
-    \field{sortinithash}{Y}
-    \field{abstract}{%
-    Electrophysiological research on neural networks and their activity focuses on the recording and analysis of large data sets that include information of thousands of neurons. CMOS microelectrode arrays (MEAs) feature thousands of electrodes at a spatial resolution on the scale of single cells and are, therefore, ideal tools to support neural-network research. Moreover, they offer high spatio-temporal resolution and signal-to-noise ratio (SNR) to capture all features and subcellular-resolution details of neuronal signaling. Here, we present a dual-mode (DM) MEA, which enables simultaneous: 1) full-frame readout from all electrodes and 2) high-SNR readout from an arbitrarily selectable subset of electrodes. The DM-MEA includes 19,584 electrodes, 19,584 full-frame recording channels with noise levels of 10.4 μVrms in the action potential (AP) frequency band (300 Hz-5 kHz), 246 low-noise recording channels with noise levels of 3.0 μVrms in the AP band and eight stimulation units. The capacity to simultaneously perform full-frame and high-SNR recordings endows the presented DM-MEA with great flexibility for various applications in neuroscience and pharmacology.%
-    }
-    \verb{doi}
-    \verb 10.1109/JSSC.2021.3066043
-    \endverb
-    \field{issn}{1558-173X}
-    \field{number}{8}
-    \field{pages}{2466\bibrangedash 2475}
-    \field{title}{Extracellular Recording of Entire Neural Networks Using a Dual-Mode Microelectrode Array With 19 584 Electrodes and High SNR}
-    \field{volume}{56}
-    \field{journaltitle}{IEEE Journal of Solid-State Circuits}
-    \field{month}{08}
-    \field{year}{2021}
   \endentry
 \enddatalist
 \endinput

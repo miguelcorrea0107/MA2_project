@@ -13,11 +13,11 @@
 \contentsline {section}{\numberline {3.2}Design Choices}{6}{section.18}%
 \contentsline {section}{\numberline {3.3}Schematic Design}{7}{section.19}%
 \contentsline {section}{\numberline {3.4}Simulation Results}{7}{section.21}%
-\contentsline {section}{\numberline {3.5}Layout Design}{8}{section.25}%
+\contentsline {section}{\numberline {3.5}Layout Design}{9}{section.25}%
 \contentsline {section}{\numberline {3.6}Post-Layout Simulation}{9}{section.27}%
 \contentsline {section}{\numberline {3.7}Conclusion}{10}{section.31}%
 \contentsline {chapter}{\numberline {4}Conclusion}{12}{chapter.32}%
-\contentsline {chapter}{\numberline {A}All Simulation Results}{14}{appendix.33}%
+\contentsline {chapter}{\numberline {A}Simulation Results}{14}{appendix.33}%
 \contentsline {section}{\numberline {A.1}Version 1}{14}{section.34}%
 \contentsline {section}{\numberline {A.2}Version 2}{16}{section.37}%
 \contentsline {section}{\numberline {A.3}Version 3}{17}{section.40}%
