@@ -17,6 +17,23 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
+  \entry{chatgpt}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=O}{%
+         family={OpenAI},
+         familyi={O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{O1}
+    \strng{fullhash}{O1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{June 2024 version, Available from https://chat.openai.com/chat}
+    \field{note}{Accessed: 2024-06-10}
+    \field{title}{ChatGPT}
+    \field{year}{2024}
+  \endentry
+
   \entry{Department_of_Biosystems_Science_and_Engineering_2024}{misc}{}
     \list{language}{1}{%
       {en}%
